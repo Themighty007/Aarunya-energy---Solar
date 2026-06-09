@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  
+  --color-solar-dark: #0a0e1a;
+  --color-solar-gold: #d4a843;
+  --color-solar-cream: #f5e6c8;
+  --color-solar-tertiary: #1a2332;
+  --color-solar-energy: #ffcc33;
+  --color-solar-gray: #a0aec0;
+}
+
+/* Custom CSS animations */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(110vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--op, 0.5);
+  }
+  90% {
+    opacity: var(--op, 0.5);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift, 30px));
+    opacity: 0;
+  }
+}
+
+@keyframes rotateSun {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rise {
+  animation: rise var(--dur, 12s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.animate-float-up {
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+.animate-float-down {
+  animation: floatDown 7s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatUp 8s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-rotate-sun {
+  animation: rotateSun 25s linear infinite;
+}
+
+/* Scroll Animation classes (backup) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom grid dot decoration */
+.grid-dots {
+  background-image: radial-gradient(rgba(212, 168, 67, 0.12) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* 3D tilt styles for CSS-only card hover */
+.tilt-card {
+  perspective: 1000px;
+}
+
+.tilt-card-inner {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover .tilt-card-inner {
+  transform: rotateY(5deg) rotateX(-4deg) translateZ(10px);
+}
+
+.glow-on-hover {
+  transition: box-shadow 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 35px rgba(212, 168, 67, 0.25);
+  border-color: rgba(212, 168, 67, 0.6);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2332;
+  border-radius: 4px;
+  border: 2px solid #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a843;
+}

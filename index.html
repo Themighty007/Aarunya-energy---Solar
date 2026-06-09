@@ -1,0 +1,3004 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AARUNYA ENERGY | Premium High-Contrast Solar Solutions</title>
+    <meta name="description" content="AARUNYA ENERGY is the definitive tier-1 solar company in India. Solid tactile surfaces, PM Surya Ghar compliant, and maximum efficiency solar tiles." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --deep-space: #050505;
+        --off-white: #f4f4f0;
+        --accent: #c8f500;
+        --dark-surface: #111111;
+        --hairline: #222222;
+        --text-primary: #ffffff;
+        --text-secondary: #888888;
+        --text-dark-primary: #111111;
+        --text-dark-secondary: #666666;
+        --success: #c8f500;
+        --error: #ff4444;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "IBM Plex Mono", monospace;
+
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+        --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--deep-space);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+      .label-mono {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+        width: 100%;
+        position: relative;
+      }
+      section {
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Transitions classes */
+      .reveal-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+      }
+      .reveal-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+      }
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.96);
+        transition: opacity 0.8s var(--ease-out-quart), transform 0.8s var(--ease-spring);
+      }
+      .reveal-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08rem;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 100px;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+        transition: all 0.25s var(--ease-out-expo);
+      }
+      .btn-primary {
+        background-color: var(--accent);
+        color: #000000;
+        box-shadow: 0 4px 12px rgba(200, 245, 0, 0.2);
+      }
+      .btn-primary:hover {
+        background-color: #ffffff;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+      }
+      .btn-secondary {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+      }
+      .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px);
+      }
+      .btn-icon-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #000000;
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 10px;
+        transition: transform 0.2s var(--ease-out-expo);
+      }
+      .btn-primary:hover .btn-icon-circle {
+        background-color: #000000;
+        transform: translateX(4px);
+      }
+
+      /* LOADING CURTAIN */
+      #loader {
+        position: fixed;
+        inset: 0;
+        background-color: var(--deep-space);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.6s var(--ease-out-expo);
+      }
+      .loader-ring {
+        width: 48px;
+        height: 48px;
+        border: 2px solid rgba(200, 245, 0, 0.2);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .loader-text {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      /* PROGRESS BAR */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--accent);
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: 1001;
+      }
+
+      /* NAVIGATION BAR */
+      .nav-wrapper {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-30px);
+        width: 100%;
+        max-width: 1280px;
+        padding: 0 32px;
+        z-index: 1000;
+        opacity: 0;
+        transition: transform 0.8s var(--ease-out-expo), opacity 0.8s var(--ease-out-expo);
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        padding: 12px 32px;
+        border-radius: 100px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #ffffff;
+      }
+      .logo-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        color: #000000;
+      }
+      .logo-text {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 6px 0;
+        position: relative;
+        transition: color 0.25s var(--ease-out-expo);
+      }
+      .nav-links a:hover, .nav-links a.active {
+        color: #ffffff;
+      }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s var(--ease-out-expo);
+      }
+      .nav-links a:hover::after, .nav-links a.active::after {
+        transform: scaleX(1);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      /* HAMBURGER */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20px;
+        height: 14px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      .hamburger span {
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        transition: transform 0.3s var(--ease-out-expo), opacity 0.3s var(--ease-out-expo);
+      }
+      .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .hamburger.active span:nth-child(2) { opacity: 0; }
+      .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+      /* MOBILE MENU OVERLAY */
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background-color: var(--deep-space);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        transform: translateY(-100%);
+        transition: transform 0.5s var(--ease-out-expo);
+      }
+      .mobile-menu.active {
+        transform: translateY(0);
+      }
+      .mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        list-style: none;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .mobile-links a {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 2.22rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s var(--ease-out-expo);
+      }
+      .mobile-links a:hover, .mobile-links a.active {
+        color: var(--accent);
+      }
+
+      /* HERO SECTION */
+      .hero {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        background-image: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.3) 100%), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        position: relative;
+      }
+      .hero-content {
+        max-width: 760px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-heading {
+        font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+        margin-bottom: 24px;
+        text-transform: none;
+        line-height: 1.05;
+      }
+      .hero-subheadline {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 520px;
+        margin-bottom: 40px;
+      }
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .badge-pill {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        padding: 8px 16px;
+        border-radius: 100px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: #ffffff;
+      }
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+
+      /* FLOATING HERO CARDS */
+      .floating-social-card {
+        position: absolute;
+        bottom: 80px;
+        right: 60px;
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-left: 3px solid var(--accent);
+        border-radius: 16px;
+        padding: 24px;
+        width: 250px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        z-index: 10;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: cardFloat 6s ease-in-out infinite;
+      }
+      .floating-metric-card {
+        position: absolute;
+        bottom: 240px;
+        right: 60px;
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-left: 3px solid var(--accent);
+        border-radius: 16px;
+        padding: 24px;
+        width: 250px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        z-index: 10;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: cardFloat2 6s ease-in-out infinite 1s;
+      }
+      @keyframes cardFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes cardFloat2 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      .avatar-pile {
+        display: flex;
+        margin-bottom: 12px;
+      }
+      .avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: bold;
+        color: #ffffff;
+        border: 2px solid var(--dark-surface);
+        margin-right: -8px;
+      }
+      .avatar-pile .avatar:nth-child(1) { background-color: var(--accent); color: #000000; }
+      .avatar-pile .avatar:nth-child(2) { background-color: #333333; }
+      .avatar-pile .avatar:nth-child(3) { background-color: #555555; }
+      .social-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 4px;
+      }
+      .social-rating {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+      .social-rating span {
+        color: var(--accent);
+      }
+
+      /* GENERAL DECORATIVE SVG ARCS (SOLAR PATH) */
+      .solar-path {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        color: var(--accent);
+        opacity: 0.15;
+        stroke-dasharray: 200;
+        animation: drawArc 10s linear infinite;
+        pointer-events: none;
+      }
+      .solar-path-hero {
+        top: 40px;
+        right: 40px;
+      }
+      .solar-path-footer {
+        bottom: 20px;
+        left: 40px;
+      }
+      @keyframes drawArc {
+        0% { stroke-dashoffset: 200; }
+        50% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -200; }
+      }
+
+      /* CO2 IMPACT SPLIT PANEL */
+      .co2-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 600px;
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+        padding: 0;
+      }
+      .co2-left {
+        background-color: #050505;
+        padding: 80px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+      }
+      .co2-line {
+        width: 60px;
+        height: 1px;
+        background-color: var(--hairline);
+        margin-bottom: 24px;
+      }
+      .co2-giant {
+        font-family: var(--font-display);
+        font-weight: 300;
+        font-size: clamp(5rem, 10vw, 8rem);
+        color: #ffffff;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        margin-bottom: 16px;
+      }
+      .co2-subtext {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+      }
+      .co2-metric {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--accent);
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+      .co2-right {
+        background: url('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=1200&q=80') center/cover no-repeat;
+        min-height: 350px;
+      }
+      .co2-divider {
+        position: absolute;
+        right: 0;
+        top: 10%;
+        bottom: 10%;
+        width: 1px;
+        background-color: var(--hairline);
+      }
+
+      /* TRUST BAR */
+      .trustbar {
+        background-color: var(--deep-space);
+        padding: 80px 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+      .trust-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .trust-num {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 4px;
+        font-family: var(--font-display);
+        line-height: 1;
+      }
+      .trust-bar-line {
+        width: 100%;
+        height: 2px;
+        background-color: #222222;
+        margin-bottom: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+      .trust-bar-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.2s var(--ease-out-quart);
+      }
+      .reveal-up.visible .trust-bar-fill {
+        transform: scaleX(1);
+      }
+      .trust-label {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      /* CERTIFICATION MARQUEE */
+      .marquee-section {
+        background-color: #050505;
+        border-bottom: 1px solid var(--hairline);
+        padding: 32px 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-container {
+        display: inline-block;
+        animation: marquee 25s linear infinite;
+      }
+      .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #444444;
+        letter-spacing: 0.2em;
+        margin-right: 64px;
+      }
+      .marquee-diamond {
+        color: var(--accent);
+        font-size: 8px;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* INSTALLATION PROCESS TIMELINE */
+      .process {
+        background-color: var(--off-white);
+        color: var(--text-dark-primary);
+      }
+      .process-headline {
+        font-size: clamp(2rem, 4vw, 2.82rem);
+        color: var(--text-dark-primary);
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        position: relative;
+      }
+      .process-line {
+        position: absolute;
+        top: 24px;
+        left: 12%;
+        right: 12%;
+        height: 2px;
+        background-color: #dddddd;
+        z-index: 1;
+      }
+      .process-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+      .process-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        background-color: var(--off-white);
+        color: var(--text-dark-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        transition: all 0.3s var(--ease-spring);
+      }
+      .process-col:hover .process-circle {
+        background-color: var(--accent);
+        color: #000000;
+        transform: scale(1.1);
+      }
+      .process-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-dark-primary);
+        margin-bottom: 12px;
+      }
+      .process-desc {
+        font-size: 0.88rem;
+        color: var(--text-dark-secondary);
+        max-width: 220px;
+      }
+
+      /* SERVICES SECTION with solid background and custom accent border cards */
+      .services {
+        background-color: var(--deep-space);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: 4fr 6fr;
+        gap: 64px;
+        align-items: start;
+      }
+      .services-left {
+        position: sticky;
+        top: 120px;
+      }
+      .services-headline {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-top: 16px;
+        margin-bottom: 32px;
+      }
+      .services-right {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .service-card {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-left: 4px solid var(--accent);
+        border-radius: 12px;
+        padding: 32px;
+        transition: transform 0.4s var(--ease-out-quart);
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+      }
+      .service-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .service-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(200, 245, 0, 0.1);
+        color: var(--accent);
+      }
+      .service-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .service-desc {
+        color: var(--text-secondary);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      /* ABOUT SECTION */
+      .about {
+        background-color: var(--off-white);
+        color: var(--text-dark-primary);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 5fr 5fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .about-headline {
+        font-size: clamp(1.8rem, 3.5vw, 2.82rem);
+        color: var(--text-dark-primary);
+        margin-bottom: 24px;
+      }
+      .about-body {
+        font-size: 1rem;
+        color: var(--text-dark-secondary);
+        line-height: 1.7;
+        margin-bottom: 40px;
+      }
+      .about-graphic {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        margin-top: 24px;
+      }
+      .about-giant-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 120px;
+        color: var(--text-dark-primary);
+        line-height: 0.8;
+        opacity: 0.05;
+      }
+      .about-num-lbl {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-dark-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: -16px;
+      }
+      .about-checklist {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .about-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.94rem;
+        color: #333333;
+      }
+      .about-check {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        color: #000000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: bold;
+      }
+
+      /* PRODUCTS / SYSTEMS SECTION */
+      .products {
+        background-color: var(--deep-space);
+      }
+      .products-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .products-title {
+        font-size: clamp(2rem, 4.5vw, 3.5rem);
+        margin-bottom: 12px;
+      }
+      .products-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+      .products-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 48px;
+      }
+      .tab-btn {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 10px 20px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: all 0.25s var(--ease-out-expo);
+      }
+      .tab-btn.active, .tab-btn:hover {
+        background-color: var(--accent);
+        color: #000000;
+        border-color: var(--accent);
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .product-card {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-left: 4px solid var(--accent);
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.35s var(--ease-out-quart);
+      }
+      .product-card:hover {
+        transform: translateY(-8px);
+      }
+      .product-img-wrapper {
+        width: 100%;
+        aspect-ratio: 16/10;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+      .product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s var(--ease-out-expo);
+      }
+      .product-card:hover .product-img {
+        transform: scale(1.05);
+      }
+      .product-badge {
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .product-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .product-desc {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+      .product-specs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+      .spec-dot {
+        width: 4px;
+        height: 4px;
+        background-color: #333333;
+        border-radius: 50%;
+      }
+      .product-price {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+      .product-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        border-radius: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s var(--ease-out-expo);
+      }
+      .product-btn:hover {
+        background-color: var(--accent);
+        color: #000000;
+      }
+
+      /* COMPARISON TABLE */
+      .comparison {
+        background-color: #050505;
+      }
+      .comparison-headline {
+        font-size: clamp(2rem, 4vw, 2.82rem);
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .table-wrapper {
+        border-radius: 12px;
+        border: 1px solid var(--hairline);
+        overflow: hidden;
+      }
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 4fr 3fr 3fr 3fr;
+      }
+      .compare-header {
+        background-color: var(--dark-surface);
+        padding: 20px 24px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        letter-spacing: 0.1em;
+        border-bottom: 1px solid var(--hairline);
+        display: flex;
+        align-items: center;
+      }
+      .compare-header.aarunya-col, .compare-cell.aarunya-col {
+        background-color: #111111;
+        border-left: 2px solid var(--accent);
+        border-right: 2px solid var(--accent);
+      }
+      .compare-cell {
+        padding: 20px 24px;
+        font-size: 0.94rem;
+        border-bottom: 1px solid var(--hairline);
+        display: flex;
+        align-items: center;
+        background-color: #050505;
+      }
+      .compare-grid:last-child .compare-cell {
+        border-bottom: none;
+      }
+      .check-circle-green {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgba(200, 245, 0, 0.1);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+
+      /* CALCULATOR & BEFORE/AFTER SLIDER SECTION */
+      .calculator {
+        background-color: var(--dark-surface);
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 64px;
+        align-items: start;
+      }
+      .calc-title {
+        font-size: 2.22rem;
+        margin-bottom: 12px;
+      }
+      .calc-group {
+        margin-bottom: 24px;
+      }
+      .calc-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+      .calc-slider-wrapper {
+        position: relative;
+        padding-top: 8px;
+      }
+      .calc-slider {
+        width: 100%;
+        appearance: none;
+        height: 4px;
+        background: #222222;
+        border-radius: 10px;
+        outline: none;
+      }
+      .calc-slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent);
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+      .calc-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      .calc-select {
+        width: 100%;
+        background-color: #1a1a1a;
+        border: 1px solid var(--hairline);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 14px;
+        font-family: var(--font-body);
+        font-size: 0.94rem;
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* BEFORE / AFTER SLIDER */
+      .before-after-card {
+        background-color: var(--deep-space);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 32px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .before-after-title {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        letter-spacing: 0.1em;
+      }
+      .ba-slider-container {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        user-select: none;
+      }
+      .ba-side {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .ba-before {
+        background-color: #1c0e0e;
+        color: #ff4444;
+        width: 100%;
+        clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        z-index: 2;
+      }
+      .ba-after {
+        background-color: #0e1a0e;
+        color: var(--accent);
+        z-index: 1;
+      }
+      .ba-amount {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 1;
+        margin-top: 8px;
+      }
+      .ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: var(--accent);
+        z-index: 10;
+        cursor: ew-resize;
+        transform: translateX(-50%);
+        box-shadow: 0 0 12px var(--accent);
+      }
+      .ba-thumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+        background-color: var(--accent);
+        border: 4px solid var(--deep-space);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+        font-weight: bold;
+        font-size: 11px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      }
+
+      /* CALCULATED SUMMARY BOX */
+      .calc-results-panel {
+        background-color: var(--deep-space);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+      .results-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .result-item {
+        border-bottom: 1px solid var(--hairline);
+        padding-bottom: 16px;
+      }
+      .result-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .result-val {
+        font-family: var(--font-display);
+        font-size: 2.22rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1.1;
+      }
+
+      /* TESTIMONIALS SECTION */
+      .testimonials {
+        background-color: #111111;
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .testimonials-headline {
+        font-size: clamp(2rem, 4vw, 2.82rem);
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .testimonial-card {
+        background-color: #050505;
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s var(--ease-out-expo);
+      }
+      .testimonial-card:hover {
+        transform: translateY(-8px);
+      }
+      .quote-stars {
+        color: var(--accent);
+        font-size: 0.94rem;
+        margin-bottom: 16px;
+      }
+      .quote-text {
+        font-style: italic;
+        color: #cccccc;
+        font-size: 0.96rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .profile-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .profile-initials {
+        width: 38px;
+        height: 38px;
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        color: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-weight: bold;
+        font-size: 0.88rem;
+      }
+      .profile-name {
+        font-weight: 600;
+        font-size: 0.94rem;
+      }
+      .profile-meta {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--accent);
+        margin-top: 2px;
+      }
+
+      /* SERVICE AREAS SECTION */
+      .areas {
+        background-color: var(--off-white);
+        color: var(--text-dark-primary);
+        text-align: center;
+        position: relative;
+      }
+      .areas-headline {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+        color: var(--text-dark-primary);
+        margin-bottom: 48px;
+      }
+      .areas-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .city-pill {
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        color: #333333;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 100px;
+        transition: all 0.25s var(--ease-out-expo);
+      }
+      .city-pill:hover {
+        border-color: var(--accent);
+        color: #000000;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .areas-watermark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: clamp(6rem, 15vw, 15rem);
+        font-weight: 900;
+        color: var(--text-dark-primary);
+        line-height: 1;
+        opacity: 0.02;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* FAQ ACCORDION SECTION */
+      .faq {
+        background-color: var(--deep-space);
+      }
+      .faq-headline {
+        font-size: clamp(2rem, 4vw, 2.82rem);
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .accordion-item {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: border-color 0.3s var(--ease-out-expo);
+      }
+      .accordion-item.open {
+        border-color: var(--accent);
+      }
+      .accordion-header {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #ffffff;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .accordion-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--accent);
+        transition: transform 0.3s var(--ease-spring);
+      }
+      .accordion-item.open .accordion-icon {
+        transform: rotate(45deg);
+      }
+      .accordion-content {
+        max-height: 0;
+        transition: max-height 0.35s var(--ease-out-expo);
+        overflow: hidden;
+      }
+      .accordion-body {
+        padding: 0 24px 24px;
+        color: #aaaaaa;
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      /* QUOTE CONVERSION FORM SECTION */
+      .booking {
+        background-color: var(--off-white);
+        color: var(--text-dark-primary);
+      }
+      .booking-header {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 60px;
+      }
+      .booking-title {
+        font-size: 2.5rem;
+        color: var(--text-dark-primary);
+        margin-bottom: 12px;
+      }
+      .booking-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-dark-secondary);
+      }
+      .booking-form {
+        max-width: 720px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e0;
+        border-radius: 16px;
+        padding: 48px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+      }
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .form-group-full {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      .form-lbl {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #333333;
+        margin-bottom: 6px;
+      }
+      .form-input, .form-select, .form-textarea {
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 6px;
+        padding: 12px;
+        font-family: var(--font-body);
+        font-size: 0.94rem;
+        color: var(--text-dark-primary);
+        outline: none;
+        transition: border-color 0.25s var(--ease-out-expo);
+      }
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--accent);
+      }
+      .form-textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      .btn-submit {
+        background-color: #000000;
+        color: #ffffff;
+        width: 100%;
+        border-radius: 6px;
+        padding: 16px;
+        font-weight: 600;
+        font-size: 0.94rem;
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        margin-top: 12px;
+        transition: background-color 0.2s;
+      }
+      .btn-submit:hover {
+        background-color: #222222;
+      }
+      .error-msg {
+        color: var(--error);
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 4px;
+        display: none;
+        font-family: var(--font-mono);
+      }
+      .form-input.has-error {
+        border-color: var(--error);
+      }
+
+      /* SUCCESS BANNER OVERLAY CONTAINER */
+      .form-success-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .success-icon-circle {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        color: #000000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+      .success-main-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #111111;
+        margin-bottom: 8px;
+      }
+      .success-summary-box {
+        background-color: var(--off-white);
+        border: 1px solid #e5e5e0;
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 480px;
+        margin-top: 20px;
+        text-align: left;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: #555555;
+      }
+      .success-summary-box h4 {
+        color: #111111;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #ddddd4;
+        padding-bottom: 4px;
+      }
+
+      /* FOOTER & LIVE COUNTER */
+      footer {
+        background-color: var(--deep-space);
+        border-top: 1px solid #1a1a1a;
+        padding: 80px 0 40px;
+        color: var(--text-secondary);
+        position: relative;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 4fr 2.5fr 2.5fr 3fr;
+        gap: 48px;
+        margin-bottom: 60px;
+      }
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .footer-desc {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+      .footer-head {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-links a {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .footer-links a:hover {
+        color: #ffffff;
+      }
+      .footer-bottom {
+        border-top: 1px solid var(--hairline);
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-copy {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #555555;
+      }
+
+      /* LIVE GENERATION COUNTER */
+      .live-counter-panel {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .live-counter-lbl {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        letter-spacing: 0.05em;
+        margin-bottom: 4px;
+      }
+      .live-counter-val {
+        font-family: var(--font-mono);
+        font-size: 1.125rem;
+        font-weight: bold;
+        color: var(--accent);
+        transition: all 0.2s ease;
+      }
+
+      /* MOBILE FIXED FAB BUTTON */
+      .mobile-fab {
+        display: none;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background-color: var(--accent);
+        color: #000000;
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 14px 20px;
+        border-radius: 100px;
+        text-decoration: none;
+        z-index: 999;
+        box-shadow: 0 4px 16px rgba(200, 245, 0, 0.4);
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.2s var(--ease-out-expo);
+      }
+      .mobile-fab:active {
+        transform: scale(0.95);
+      }
+
+      /* SECTION INDICATORS AT RIGHT OF DESKTOP */
+      .section-indicators {
+        position: fixed;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 998;
+      }
+      .indicator-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #333333;
+        cursor: pointer;
+        transition: all 0.3s var(--ease-out-expo);
+      }
+      .indicator-dot.active {
+        background-color: var(--accent);
+        transform: scale(1.4);
+      }
+
+      @media (max-width: 1024px) {
+        section { padding: 80px 0; }
+        .container { padding: 0 24px; }
+        .co2-split { grid-template-columns: 1fr; }
+        .co2-divider { display: none; }
+        .co2-right { min-height: 400px; }
+        .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .process-line { display: none; }
+        .services-grid { grid-template-columns: 1fr; gap: 40px; }
+        .services-left { position: relative; top: 0; }
+        .about-grid { grid-template-columns: 1fr; gap: 40px; }
+        .products-grid { grid-template-columns: repeat(2, 1fr); }
+        .calc-grid { grid-template-columns: 1fr; gap: 40px; }
+        .testimonials-grid { grid-template-columns: 1fr; gap: 24px; }
+        .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .section-indicators { display: none; }
+      }
+
+      @media (max-width: 767px) {
+        section { padding: 60px 0; }
+        .nav-wrapper { padding: 0; top: 0; }
+        .nav-container { border-radius: 0; border: none; padding: 16px 24px; }
+        .nav-links, .nav-right .btn { display: none; }
+        .hamburger { display: flex; }
+        .trust-grid { grid-template-columns: 1fr; }
+        .process-grid { grid-template-columns: 1fr; }
+        .products-grid { grid-template-columns: 1fr; }
+        .form-grid-2 { grid-template-columns: 1fr; }
+        .form-group-full { grid-column: span 1; }
+        .booking-form { padding: 24px; }
+        .mobile-fab { display: inline-flex; }
+        .floating-social-card, .floating-metric-card { display: none; }
+        .co2-left { padding: 60px 24px; }
+        .footer-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- SCREEN LOADER -->
+    <div id="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Aarunya Energy</div>
+    </div>
+
+    <!-- UPPER PROGRESS INDICATOR LINE -->
+    <div class="progress-bar" id="progressLine"></div>
+
+    <!-- FLOATING GLASSM_LESS HEADER -->
+    <div class="nav-wrapper" id="navigation">
+      <nav class="nav-container">
+        <a href="#home" class="logo">
+          <div class="logo-circle">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <span class="logo-text">AARUNYA ENERGY</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#timeline">Journey</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#systems">Systems</a></li>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#contact">Consultation</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="#contact" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.65rem;">
+            Get Quote
+            <span class="btn-icon-circle">→</span>
+          </a>
+          <button class="hamburger" id="hamburger-menu" aria-label="Toggle navigation bar button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- RESPONSIVE MOBILE MENU DISPLAY drawer -->
+    <div class="mobile-menu" id="mobile-drawer">
+      <ul class="mobile-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#timeline">Journey</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#systems">Systems</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#contact">Consultation</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" id="mobile-drawer-cta">
+        Get Quote
+        <span class="btn-icon-circle">→</span>
+      </a>
+    </div>
+
+    <!-- HERO PANEL -->
+    <header class="hero" id="home">
+      <!-- Decorative solar path SVG line -->
+      <svg class="solar-path solar-path-hero" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+        <path d="M10,90 Q90,90 90,10" stroke-width="0.5"/>
+      </svg>
+      
+      <div class="container bg-overlay-control">
+        <div class="hero-content">
+          <div class="label-mono hero-eyebrow" style="color: var(--accent); margin-bottom: 20px;">MNRE APPROVED • CERTIFIED GREEN INTERFACE</div>
+          <h1 class="hero-heading">Precision solar grids engineered for <span style="color: var(--accent);">Indian homes.</span></h1>
+          <p class="hero-subheadline">
+            Introducing Aarunya Energy's next-generation modular energy systems. Secure up to 98.4% peak solar conversion efficiency, automated subsidy filings, and grid autonomy starting today.
+          </p>
+          <div class="badge-row">
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              MNRE APPROVED VENDOR
+            </div>
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              PM SURYA GHAR PARTNER
+            </div>
+          </div>
+          <div class="hero-ctas">
+            <a href="#calculator" class="btn btn-primary">
+              Estimate Savings
+              <span class="btn-icon-circle">→</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">Get Free Consultation</a>
+          </div>
+        </div>
+
+        <!-- Floating indicators -->
+        <div class="floating-social-card" id="cardSocial">
+          <div class="avatar-pile">
+            <div class="avatar">R</div>
+            <div class="avatar">P</div>
+            <div class="avatar">A</div>
+          </div>
+          <div class="social-label">LATEST INAUGURAL BATCH</div>
+          <div class="social-rating">4.96 of 5 elite pilot rating <span style="display: inline-flex; align-items: center; justify-content: center; gap: 2px; vertical-align: middle;"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span></div>
+        </div>
+
+        <div class="floating-metric-card" id="cardMetric">
+          <div class="social-label" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.7rem;">PEAK CELL EFFICIENCY</div>
+          <div class="result-val" style="font-size: 2rem; margin: 4px 0;">98.4%</div>
+          <div class="social-rating">Maximum generation guarantee from our high density modules</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION A: CO2 IMPACT HORIZONTAL SPLIT -->
+    <section class="co2-split" id="impact" style="padding: 0;">
+      <div class="co2-left reveal-left">
+        <div class="co2-line"></div>
+        <div class="co2-giant">NET ZERO</div>
+        <div class="co2-subtext">Inaugurating India's modern modular solar clusters with a target offset of</div>
+        <div class="co2-metric">50,000 Tons</div>
+        <div class="co2-subtext" style="font-size: 0.94rem;">of CO₂ emissions annually across our early-access grid</div>
+        <div class="co2-divider"></div>
+      </div>
+      <div class="co2-right reveal-right"></div>
+    </section>
+
+    <!-- SECTION 3: TRUST BAR -->
+    <section class="trustbar">
+      <div class="container">
+        <div class="trust-grid reveal-up">
+          <div class="trust-col">
+            <div class="trust-num" data-target="1500">0</div>
+            <div class="trust-bar-line"><div class="trust-bar-fill"></div></div>
+            <div class="trust-label">EARLY INAUGURAL ENROLLMENTS</div>
+          </div>
+          <div class="trust-col">
+            <div class="trust-num" data-target="25">0</div>
+            <div class="trust-bar-line"><div class="trust-bar-fill"></div></div>
+            <div class="trust-label">YEARS GUARANTEED LIFESPAN</div>
+          </div>
+          <div class="trust-col">
+            <div class="trust-num" data-target="98.7" data-decimal="true">0</div>
+            <div class="trust-bar-line"><div class="trust-bar-fill"></div></div>
+            <div class="trust-label">SURFACE EFFICIENCY COEFFICIENT %</div>
+          </div>
+          <div class="trust-col">
+            <div class="trust-num" data-target="15">0</div>
+            <div class="trust-bar-line"><div class="trust-bar-fill"></div></div>
+            <div class="trust-label">CR INITIATIVE SUBSIDY CAPITAL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION B: CERTIFICATION LOGOS INFINITE MARQUEE -->
+    <div class="marquee-section">
+      <div class="marquee-container">
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> MNRE APPROVED APPROVED</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> BIS CERTIFIED IN-0921</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> ISO 9001 SYSTEM</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> PM SURYA GHAR APPROVED</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> DISCOM NET-METERING INTEGRITY</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> IEC CERTIFIED MODULES</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> MNRE APPROVED APPROVED</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> BIS CERTIFIED IN-0921</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> ISO 9001 SYSTEM</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> PM SURYA GHAR APPROVED</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> DISCOM NET-METERING INTEGRITY</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> IEC CERTIFIED MODULES</span>
+      </div>
+    </div>
+
+    <!-- SECTION C: INSTALLATION STEP TIMELINE -->
+    <section class="process" id="timeline">
+      <div class="container">
+        <h2 class="process-headline reveal-up">From Roof to Power — 4 Simple Steps</h2>
+        <div class="process-grid reveal-scale">
+          <div class="process-line"></div>
+          
+          <div class="process-col">
+            <div class="process-circle">1</div>
+            <h3 class="process-title">Site Survey</h3>
+            <p class="process-desc">Our engineer visits your property, assesses roof load capability, solar exposure, and matches active billing history.</p>
+          </div>
+
+          <div class="process-col">
+            <div class="process-circle">2</div>
+            <h3 class="process-title">System Design</h3>
+            <p class="process-desc">Custom 3D CAD design for layout orientation, sizing optimization, and DISCOM paperwork readiness.</p>
+          </div>
+
+          <div class="process-col">
+            <div class="process-circle">3</div>
+            <h3 class="process-title">Installation</h3>
+            <p class="process-desc">Certified teams install your array in 2-3 days, handling full government subsidy documentation pre-filing.</p>
+          </div>
+
+          <div class="process-col">
+            <div class="process-circle">4</div>
+            <h3 class="process-title">Switch On</h3>
+            <p class="process-desc">Net metering setup integration by your local DISCOM. Start saving immediate solar credits from Day 1.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION D: SERVICES INSTEAD OF LIME SECTIONS WITH SOLID TILES AND ACCENTS -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-grid">
+          
+          <div class="services-left reveal-left">
+            <span class="label-mono" style="color: var(--accent);">PIONEERING RENEWABLE ARCHITECTURE</span>
+            <h2 class="services-headline">Unveiling High-Density Solar Engineering</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px; max-width: 420px;">
+              Aarunya Energy introduces next-generation solar architecture structurally built to withstand heavy monsoons and high wind loads with pristine longevity.
+            </p>
+            <a href="#contact" class="btn btn-primary">
+              Connect With Us
+              <span class="btn-icon-circle">→</span>
+            </a>
+          </div>
+
+          <div class="services-right reveal-right">
+            <div class="service-card">
+              <div class="service-header">
+                <div class="service-icon-wrapper">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:14px; height: 14px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3 class="service-title">Dual-Pane Performance Guarantee</h3>
+              </div>
+              <p class="service-desc">Protected by full 25-year structural performance parameters. Monitored in real-time from our central telemetry hubs.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-header">
+                <div class="service-icon-wrapper">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height: 14px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h3 class="service-title">Automated Active Telemetry</h3>
+              </div>
+              <p class="service-desc">Every installation streams system analytics directly to our cloud core. We schedule early maintenance before performance drops occur.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-header">
+                <div class="service-icon-wrapper">₹</div>
+                <h3 class="service-title">Structured Green Finance</h3>
+              </div>
+              <p class="service-desc">Direct partnership networks with Tier-1 public and private institutions to enable seamless, zero-down green loan programs.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION E: EDITORIAL ABOUT SOLUTIONS -->
+    <section class="about">
+      <div class="container">
+        <div class="about-grid">
+          
+          <div class="reveal-left">
+            <h2 class="about-headline">Engineering cleaner, resilient energy reserves</h2>
+            <p class="about-body">
+              We have launched Aarunya Energy to accelerate the integration of high-density solar clusters within urban residential zones, creating secure local microgrids.
+            </p>
+            <div class="about-graphic">
+              <div class="about-giant-num">99.2%</div>
+              <div class="about-num-lbl">Subsidy application approval SLA</div>
+            </div>
+          </div>
+
+          <div class="reveal-right">
+            <ul class="about-checklist">
+              <li class="about-item">
+                <div class="about-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height: 12px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Bespoke 3kW, 5kW, 8kW and 10kW residential matrices</span>
+              </li>
+              <li class="about-item">
+                <div class="about-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height: 12px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Premium Lithium Ferro Phosphate (LFP) high cycle cells</span>
+              </li>
+              <li class="about-item">
+                <div class="about-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height: 12px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>MNRE Subsidy automation interface integration</span>
+              </li>
+              <li class="about-item">
+                <div class="about-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height: 12px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Optimized active structural steel framing elements</span>
+              </li>
+              <li class="about-item">
+                <div class="about-check">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:12px; height: 12px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Lifetime net generation monitoring desktop app and mobile companion</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION F: COMPLETE TIER SYSTEMS (PRODUCTS) -->
+    <section class="products" id="systems">
+      <div class="container">
+        <div class="products-header reveal-up">
+          <h2 class="products-title">Complete Energy Systems</h2>
+          <p class="products-subtitle">MNRE Compliant. End-to-End Net-Metering Connected.</p>
+        </div>
+
+        <div class="products-tabs reveal-up">
+          <button class="tab-btn active" onclick="filterSystems('all', this)">All Systems</button>
+          <button class="tab-btn" onclick="filterSystems('res', this)">Residential</button>
+          <button class="tab-btn" onclick="filterSystems('comm', this)">Commercial</button>
+        </div>
+
+        <div class="products-grid">
+          <!-- Card 1 -->
+          <div class="product-card reveal-up" data-cat="res">
+            <div>
+              <div class="product-img-wrapper">
+                <img class="product-img" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Nova Array 3kW solar installation system">
+              </div>
+              <span class="product-badge">RESIDENTIAL MATRIX</span>
+              <h3 class="product-title">Nova Array 3kW</h3>
+              <p class="product-desc">Perfect choice for 2-3 BHK homes. Standard net metering integration with rapid direct rooftop mounts.</p>
+              <div class="product-specs">
+                <span>3 kW Solar</span>
+                <span class="spec-dot"></span>
+                <span>Optimized Inverters</span>
+              </div>
+            </div>
+            <div>
+              <div class="product-price">₹1,20,000</div>
+              <button class="product-btn" onclick="selectSystem('Nova Array 3kW', 120000, 3)">Select System</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="product-card reveal-up" data-cat="res">
+            <div>
+              <div class="product-img-wrapper">
+                <img class="product-img" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=80" alt="Nova Array 5kW solar installation system with backup storage">
+              </div>
+              <span class="product-badge">COMPLETE COVERAGE BY AARUNYA</span>
+              <h3 class="product-title">Nova Array 5kW + Battery</h3>
+              <p class="product-desc">Complete residential energy independence. Houses fully functional backups during grid outages.</p>
+              <div class="product-specs">
+                <span>5 kW Solar</span>
+                <span class="spec-dot"></span>
+                <span>LFP Storage</span>
+              </div>
+            </div>
+            <div>
+              <div class="product-price">₹2,40,000</div>
+              <button class="product-btn" onclick="selectSystem('Nova Array 5kW + Battery', 240000, 5)">Select System</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="product-card reveal-up" data-cat="comm">
+            <div>
+              <div class="product-img-wrapper">
+                <img class="product-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Nova Array 10kW high yield solar system for commercial applications">
+              </div>
+              <span class="product-badge">HIGH YIELD SYSTEMS</span>
+              <h3 class="product-title">Nova Array 10kW</h3>
+              <p class="product-desc">Optimized heavy-duty power array. Best option for large luxurious houses and small offices.</p>
+              <div class="product-specs">
+                <span>10 kW High Power</span>
+                <span class="spec-dot"></span>
+                <span>3-Phase Inverters</span>
+              </div>
+            </div>
+            <div>
+              <div class="product-price">₹4,50,000</div>
+              <button class="product-btn" onclick="selectSystem('Nova Array 10kW', 450000, 10)">Select System</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION G: AARUNYA ADVANTAGE COMPARISON TABLE -->
+    <section class="comparison">
+      <div class="container">
+        <h2 class="comparison-headline reveal-up">Introducing Aarunya Grid Architecture</h2>
+        <div class="table-wrapper reveal-scale">
+          
+          <div class="compare-grid">
+            <div class="compare-header">CRITERIONS</div>
+            <div class="compare-header">TYPICAL LOCAL VENDOR</div>
+            <div class="compare-header">DIY KITS</div>
+            <div class="compare-header aarunya-col">AARUNYA ENERGY</div>
+          </div>
+
+          <div class="compare-grid">
+            <div class="compare-cell font-bold">Installation Time</div>
+            <div class="compare-cell">4 to 8 Weeks</div>
+            <div class="compare-cell">Self-Managed</div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">48 to 72 Hours <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="compare-grid">
+            <div class="compare-cell font-bold">Govt. Subsidy Filings</div>
+            <div class="compare-cell">₹0 Paperwork Support</div>
+            <div class="compare-cell">Complex Self-Filing</div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">End-to-End Filing <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="compare-grid">
+            <div class="compare-cell font-bold">Performance Warranty</div>
+            <div class="compare-cell">Basic 5 Years</div>
+            <div class="compare-cell">None Provided</div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">25 Year Protection <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="compare-grid">
+            <div class="compare-cell font-bold">Smart AI Monitoring</div>
+            <div class="compare-cell">Basic Grid App</div>
+            <div class="compare-cell font-bold">Manual Testing</div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">Daily AI Reports <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="compare-grid">
+            <div class="compare-cell font-bold">After-Sales SLA</div>
+            <div class="compare-cell">Typically Unreponsive</div>
+            <div class="compare-cell">No Support Channels</div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">24 / 7 Helplines <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION H: INTERACTIVE TARIFF CALCULATOR WITH BEFORE/AFTER BILL DRAG SLIDER -->
+    <section class="calculator" id="calculator">
+      <div class="container">
+        <div class="calc-grid">
+          
+          <div class="reveal-left">
+            <h2 class="calc-title font-bold">Solar Savings Calculator</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px;">Configure parameters to estimate MNRE Surha Ghar subsidies and annual yields.</p>
+            
+            <div class="calc-group">
+              <div class="calc-label">
+                <span>Monthly Power Bill</span>
+                <span id="billVal" style="color: var(--accent); font-weight: bold;">₹5,500</span>
+              </div>
+              <div class="calc-slider-wrapper">
+                <input class="calc-slider" id="billSlider" type="range" min="1500" max="20000" step="500" value="5500" oninput="runCalculations()">
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <label class="calc-label" for="stateSelect">State Location</label>
+              <select class="calc-select" id="stateSelect" onchange="runCalculations()">
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Karnataka" selected>Karnataka</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Delhi NCR">Delhi NCR</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <!-- BEFORE AFTER BILL REDUX SLIDER -->
+            <div class="before-after-card">
+              <span class="before-after-title">Drag to reveal savings transformation</span>
+              <div class="ba-slider-container" id="baContainer">
+                <div class="ba-side ba-before" id="baBefore">
+                  <span class="label-mono">BEFORE SOLAR BILL</span>
+                  <div class="ba-amount" id="baBeforeVal">₹5,500</div>
+                  <span style="font-size: 0.72rem; opacity: 0.7; margin-top: 8px;">Standard DISCOM Tariff</span>
+                </div>
+                <div class="ba-side ba-after">
+                  <span class="label-mono">AFTER AARUNYA ACTIVE</span>
+                  <div class="ba-amount" id="baAfterVal">₹1,375</div>
+                  <span style="font-size: 0.72rem; opacity: 0.8; margin-top: 8px; color: var(--accent);">Net Metering Activated <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" style="display:inline-block; vertical-align:middle; width: 10px; height: 10px; color: var(--accent); margin-left: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                </div>
+                <div class="ba-handle" id="baHandle">
+                  <div class="ba-thumb">↔</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-right">
+            <div class="calc-results-panel">
+              <div class="results-grid">
+                
+                <div class="result-item">
+                  <span class="calc-label">RECOMMENDED GENERATOR SIZE</span>
+                  <div class="result-val" id="resSize">5 kW</div>
+                </div>
+
+                <div class="result-item">
+                  <span class="calc-label">ESTIMATED SYSTEM PRICE</span>
+                  <div class="result-val animate-num" id="resPrice">₹2,75,000</div>
+                </div>
+
+                <div class="result-item">
+                  <span class="calc-label">GOVT. SUBSIDY APPROVED</span>
+                  <div class="result-val" id="resSubsidy" style="color: var(--accent);">₹88,000</div>
+                </div>
+
+                <div class="result-item">
+                  <span class="calc-label">ESTIMATED ANNUAL UTILITIES SAVINGS</span>
+                  <div class="result-val" id="resSavings">₹49,500</div>
+                </div>
+
+                <div class="result-item">
+                  <span class="calc-label">PAYBACK INVESTMENT PERIOD</span>
+                  <div class="result-val" id="resPayback" style="color: #ffffff;">3.8 Years</div>
+                </div>
+
+                <div class="result-item">
+                  <span class="calc-label" style="color: var(--accent); font-weight: bold;">25-YEAR SYSTEM CREDITS SAVINGS</span>
+                  <div class="result-val" id="resLTSavings" style="color: var(--accent); font-size: 2.5rem;">₹12,37,500</div>
+                </div>
+
+              </div>
+              
+              <div style="margin-top: 24px;">
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">
+                  Book Site Survey For this configuration
+                  <span class="btn-icon-circle">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION I: VERIFIED REVIEWS FROM INDIAN HOMES -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="testimonials-headline reveal-up">Voices of Our Pioneer Adopters</h2>
+        <div class="testimonials-grid">
+          
+          <!-- Review 1 -->
+          <div class="testimonial-card reveal-up">
+            <div>
+              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <p class="quote-text">"Having early access to Aarunya's modern modular layers is incredible. The structural engineering is solid, of high aesthetic precision, and structural installation took only 48 hours."</p>
+            </div>
+            <div class="profile-row">
+              <div class="profile-initials">RK</div>
+              <div>
+                <h4 class="profile-name">Rajesh K.</h4>
+                <p class="profile-meta">BANGALORE • 5kW SOLAR MATRIX</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="testimonial-card reveal-up">
+            <div>
+              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <p class="quote-text">"Their design phase was highly comprehensive and tactile. They mapped our rooftop exposure using advanced solar path analysis and automated our PM Surya Ghar subsidy application perfectly."</p>
+            </div>
+            <div class="profile-row">
+              <div class="profile-initials">PM</div>
+              <div>
+                <h4 class="profile-name">Priya M.</h4>
+                <p class="profile-meta">KOCHI • 3kW SOLAR MATRIX</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="testimonial-card reveal-up">
+            <div>
+              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <p class="quote-text">"We are proud backing Aarunya's inaugural residential grid rollout. The real-time generation metrics panel is pristine, and our baseline DISCOM charges are already down to zero."</p>
+            </div>
+            <div class="profile-row">
+              <div class="profile-initials">AS</div>
+              <div>
+                <h4 class="profile-name">Amit S.</h4>
+                <p class="profile-meta">JAIPUR • 10kW SOLAR MATRIX</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION J: SERVICE CITIES OF INDIA -->
+    <section class="areas text-center">
+      <div class="areas-watermark">INDIA</div>
+      <div class="container">
+        <h2 class="areas-headline reveal-up">Serving Solar Across India</h2>
+        <div class="areas-grid reveal-scale">
+          <span class="city-pill">MUMBAI</span>
+          <span class="city-pill">DELHI</span>
+          <span class="city-pill">BANGALORE</span>
+          <span class="city-pill">HYDERABAD</span>
+          <span class="city-pill">CHENNAI</span>
+          <span class="city-pill">PUNE</span>
+          <span class="city-pill">AHMEDABAD</span>
+          <span class="city-pill">KOLKATA</span>
+          <span class="city-pill">JAIPUR</span>
+          <span class="city-pill">LUCKNOW</span>
+          <span class="city-pill">CHANDIGARH</span>
+          <span class="city-pill">INDORE</span>
+          <span class="city-pill">NAGPUR</span>
+          <span class="city-pill">COIMBATORE</span>
+          <span class="city-pill">KOCHI</span>
+          <span class="city-pill">VISAKHAPATNAM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION K: DYNAMIC ACCORDION FAQS -->
+    <section class="faq">
+      <div class="container">
+        <h2 class="faq-headline reveal-up">Frequently Asked Questions</h2>
+        
+        <div class="faq-container reveal-up">
+          
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              Do solar panels work during monsoons?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                Yes. High-performance modules produce roughly 15-25% capacity under cloud cover. Our engineers account for seasonal cycles across India within your custom net generation projections.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              How does the PM Surya Ghar subsidy work?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                MNRE provides up to 40% subsidy on systems up to 3kW. Aarunya manages DISCOM integration alongside standard paperwork approval, accelerating the credit delivery back into your bank automatically.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              Will dust reduce general solar yields?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                Dust can decrease active efficiency parameters by 5-7%. Aarunya solar tiles are designed with specialized active rain flow self-cleaning tilts and standard maintenance schedule packages.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              What exactly is net metering?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                Net metering exports extra power generated into the central electrical grid. Your utility credits offset nighttime costs, securing maximum reductions of baseline bills.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              How long is the actual system installation?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                Structural setup of framework mounts takes 2-3 days, followed by typical state DISCOM processing and net metering integrations yielding complete grid readiness in 2-4 weeks.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              Do you offer direct solar loans and zero-down EMI options?
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                Yes. We partner directly with SBI, Bajaj Finserv, and HDFC offering rapid financing paths at 8-11% interest slabs. Complete EMI setups start as low as ₹2,400 monthly for 3kW installations.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION L: LOCALIZED CONVERSION SURVEY FORM -->
+    <section class="booking" id="contact">
+      <div class="container">
+        
+        <div class="booking-header reveal-up">
+          <h2 class="booking-title font-bold">Secure Your Custom Proposal</h2>
+          <p class="booking-subtitle">Provide details below. Our field expert will contact you within 24 hours.</p>
+        </div>
+
+        <div class="booking-form reveal-scale">
+          <!-- Submission Success State Placeholder -->
+          <div class="form-success-container" id="successBox">
+            <div class="success-icon-circle" style="display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="width: 24px; height: 24px; color: var(--accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="success-main-title">Proposal Registered</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 0.94rem;">Thank you! Your custom proposal configuration is registered successfully.</p>
+            
+            <div class="success-summary-box">
+              <h4>SURVEY SPECIFICATIONS</h4>
+              <p>Client Name: <strong id="outName">Gowtham</strong></p>
+              <p>Contact Phone: <strong id="outPhone">+91</strong></p>
+              <p>Installation Location: <strong id="outState">Karnataka</strong></p>
+              <p>Proposed Power: <strong id="outSystem">5 kW System</strong></p>
+              <p>Approved Govt. Subsidy Estimate: <strong id="outSubsidy">₹88,000</strong></p>
+            </div>
+            
+            <button class="btn btn-primary" onclick="resetFormState()" style="margin-top: 24px; padding: 12px 24px; font-size: 0.72rem;">Close Profile Setup</button>
+          </div>
+
+          <!-- The Real Interactive Form -->
+          <form id="proposalForm" onsubmit="submitProposal(event)">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-lbl" for="fullName">Full Name</label>
+                <input class="form-input" id="fullName" type="text" placeholder="Gowtham V." required>
+                <span class="error-msg" id="errName">Invalid Name Input</span>
+              </div>
+              <div class="form-group">
+                <label class="form-lbl" for="emailAddr">Email Address</label>
+                <input class="form-input" id="emailAddr" type="email" placeholder="gowtham@solar.in" required>
+                <span class="error-msg" id="errEmail">Invalid Mail Address</span>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-lbl" for="phoneNum">Phone Number (10-Digit Mobile)</label>
+                <input class="form-input" id="phoneNum" type="tel" value="+91 " maxlength="15" oninput="formatPhoneInput(this)" placeholder="+91 " required>
+                <span class="error-msg" id="errPhone">Enter valid 10-digit Indian mobile number</span>
+              </div>
+              <div class="form-group">
+                <label class="form-lbl" for="formState">State Selection</label>
+                <select class="form-select" id="formState">
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka" selected>Karnataka</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Delhi">Delhi NCR</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-full">
+              <label class="form-lbl" for="selectedSys">Calculated Solar Matrix size</label>
+              <select class="form-select" id="selectedSys">
+                <option value="Nova Array 3kW">Nova Array 3kW System (₹1,20,000)</option>
+                <option value="Nova Array 5kW + Battery" selected>Nova Array 5kW System + LFP Storage (₹2,40,000)</option>
+                <option value="Nova Array 10kW">Nova Array 10kW Heavy Load (₹4,50,000)</option>
+              </select>
+            </div>
+
+            <div class="form-group-full">
+              <label class="form-lbl" for="message">Detailed Message / Location Context</label>
+              <textarea class="form-textarea" id="message" placeholder="Provide roof type context, average power consumption hours, or specific structural preferences..."></textarea>
+            </div>
+
+            <button class="btn-submit" type="submit">Submit Request &amp; Calculate Subsidy</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER WITH SIMULATED ACTIVE LIVE INCREMENT GENERATOR -->
+    <footer>
+      <!-- Decorative path arc -->
+      <svg class="solar-path solar-path-footer" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+        <path d="M10,90 Q90,90 90,10" stroke-width="0.5"/>
+      </svg>
+
+      <div class="container animate-reveal">
+        <div class="footer-grid">
+          
+          <div class="footer-brand">
+            <a href="#home" class="logo">
+              <div class="logo-circle">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <span class="logo-text">AARUNYA ENERGY</span>
+            </a>
+            <p class="footer-desc">Premium renewable frameworks built for Indian grids. ISO certified and fully PM Surya Ghar subsidy integrated.</p>
+            
+            <!-- LIVE ENERGY ACCRUAL COMPONENT -->
+            <div class="live-counter-panel">
+              <span class="live-counter-lbl">Aarunya Grid Yield Today</span>
+              <div class="live-counter-val" id="liveYield">482,910 kWh</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-head">Systems</h4>
+            <ul class="footer-links">
+              <li><a href="#systems">Nova Array 3kW</a></li>
+              <li><a href="#systems">Nova Array 5kW</a></li>
+              <li><a href="#systems">Nova Array 10kW</a></li>
+              <li><a href="#systems">Subsidies Filing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-head">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#impact">Analytical Impact</a></li>
+              <li><a href="#timeline">Journey Timeline</a></li>
+              <li><a href="#services">Our Core Excellence</a></li>
+              <li><a href="#contact">Contact Survey</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-head">Headquarters</h4>
+            <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
+              Aarunya Energy Tower, level 4,<br>
+              Outer Ring Road, Marathahalli,<br>
+              Bangalore, KA 560103, India
+            </p>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2026 AARUNYA ENERGY. ALL RIGHTS RESERVED. MNRE REGISTERED NO. IN-2980Z.</span>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #444444;">PM SURYA GHAR GREEN COMPLIANT</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- MOBILE PERSISTENT FAB BUTTON -->
+    <a href="#contact" class="mobile-fab">
+      Get Free Proposal
+    </a>
+
+    <!-- CUSTOM CHOREOGRAPHED SCRIPT ENGINE -->
+    <script>
+      // 1. Initial Page Loader Control
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 600);
+
+        // Header Curtain Entrance
+        const nav = document.getElementById('navigation');
+        setTimeout(() => {
+          nav.style.transform = 'translateX(-50%) translateY(0)';
+          nav.style.opacity = '1';
+        }, 400);
+
+        runCalculations();
+      });
+
+      // 2. Mobile Nav Drawer Drawer toggle
+      const burger = document.getElementById('hamburger-menu');
+      const drawer = document.getElementById('mobile-drawer');
+      const drawerCta = document.getElementById('mobile-drawer-cta');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        drawer.classList.toggle('active');
+      });
+
+      drawer.querySelectorAll('a').forEach(lnk => {
+        lnk.addEventListener('click', () => {
+          burger.classList.remove('active');
+          drawer.classList.remove('active');
+        });
+      });
+
+      // 3. Scroll Progress Indicator & Header Active State Mapping
+      const sectionsList = document.querySelectorAll('section, header');
+      const navLinksList = document.querySelectorAll('.nav-links a, .mobile-links a');
+
+      // Create Section Indicators for Desktop
+      const indContainer = document.createElement('div');
+      indContainer.className = 'section-indicators';
+      document.body.appendChild(indContainer);
+
+      const indicatorSections = ['home', 'impact', 'timeline', 'services', 'systems', 'calculator', 'contact'];
+      indicatorSections.forEach(secId => {
+        const dot = document.createElement('div');
+        dot.className = 'indicator-dot';
+        dot.setAttribute('data-target', secId);
+        dot.addEventListener('click', () => {
+          document.getElementById(secId).scrollIntoView({ behavior: 'smooth' });
+        });
+        indContainer.appendChild(dot);
+      });
+
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const percent = totalHeight > 0 ? (scrolled / totalHeight) : 0;
+        
+        // Progress bar line scaling
+        document.getElementById('progressLine').style.transform = `scaleX(${percent})`;
+
+        // active class toggles mapping
+        let currentSecId = 'home';
+        sectionsList.forEach(sec => {
+          const top = sec.offsetTop - 140;
+          const height = sec.offsetHeight;
+          if (scrolled >= top && scrolled < top + height) {
+            currentSecId = sec.id;
+          }
+        });
+
+        navLinksList.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSecId}`) {
+            link.classList.add('active');
+          }
+        });
+
+        // Update Desktop Right Panel Indicators
+        document.querySelectorAll('.indicator-dot').forEach(dot => {
+          dot.classList.remove('active');
+          if (dot.getAttribute('data-target') === currentSecId) {
+            dot.classList.add('active');
+          }
+        });
+      });
+
+      // 4. Compact high-performance scroll observer
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Count up triggers
+            const numEl = entry.target.querySelector('.trust-num');
+            if (numEl) {
+              const columns = entry.target.querySelectorAll('.trust-col');
+              columns.forEach(col => {
+                const targetVal = parseFloat(col.querySelector('.trust-num').getAttribute('data-target'));
+                const displaysDecimal = col.querySelector('.trust-num').getAttribute('data-decimal') === 'true';
+                countAndAnimate(col.querySelector('.trust-num'), targetVal, displaysDecimal);
+              });
+            }
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        revealObserver.observe(el);
+      });
+
+      function countAndAnimate(el, target, isDecimal) {
+        if (el.classList.contains('counted')) return;
+        el.classList.add('counted');
+        
+        let current = 0;
+        const duration = 2000;
+        const steps = 60;
+        const increment = target / steps;
+        const intervalTime = duration / steps;
+
+        const counterInterval = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(counterInterval);
+          }
+          el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString('en-IN');
+        }, intervalTime);
+      }
+
+      // 5. Products Systems category tab filter
+      function filterSystems(cat, btn) {
+        document.querySelectorAll('.products-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.querySelectorAll('.products-grid .product-card').forEach(card => {
+          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      function selectSystem(name, price, kwSize) {
+        // highlight form input sizes
+        const bookingSec = document.getElementById('contact');
+        const sysSelect = document.getElementById('selectedSys');
+        sysSelect.value = name;
+        bookingSec.scrollIntoView({ behavior: 'smooth' });
+
+        // populate calculator slider directly
+        const requiredEstimateBillOnSize = (kwSize === 3) ? 3500 : (kwSize === 5 ? 7000 : 15000);
+        document.getElementById('billSlider').value = requiredEstimateBillOnSize;
+        runCalculations();
+      }
+
+      // 6. Indian Renewable Tariff Calculations Logics
+      function runCalculations() {
+        const rawMonthlyBill = parseFloat(document.getElementById('billSlider').value);
+        document.getElementById('billVal').textContent = '₹' + rawMonthlyBill.toLocaleString('en-IN');
+
+        // Dynamic System configuration mapping from Bill size
+        let systemSize = 3;
+        if (rawMonthlyBill > 10000) {
+          systemSize = 10;
+        } else if (rawMonthlyBill > 6000) {
+          systemSize = 8;
+        } else if (rawMonthlyBill > 3000) {
+          systemSize = 5;
+        }
+
+        const costPerKW = 55000;
+        const totalSystemCost = systemSize * costPerKW;
+
+        // Custom accurate MNRE subsidy rules matrix:
+        // 40% for the first 3kW, 20% for sizes above on next 3-10kW bracket
+        let computedSubsidy = 0;
+        if (systemSize <= 3) {
+          computedSubsidy = systemSize * costPerKW * 0.40;
+        } else {
+          computedSubsidy = (3 * costPerKW * 0.40) + ((systemSize - 3) * costPerKW * 0.20);
+        }
+
+        const netClientCost = totalSystemCost - computedSubsidy;
+        const calculatedAnnualSavings = Math.floor(rawMonthlyBill * 12 * 0.75); // accounts for typical 75% bill offset
+        const computedPaybackYears = calculatedAnnualSavings > 0 ? (netClientCost / calculatedAnnualSavings) : 0;
+        const computedLifetimeSavings = calculatedAnnualSavings * 25;
+
+        // Update active result displays
+        document.getElementById('resSize').textContent = systemSize + ' kW';
+        document.getElementById('resPrice').textContent = '₹' + totalSystemCost.toLocaleString('en-IN');
+        document.getElementById('resSubsidy').textContent = '₹' + computedSubsidy.toLocaleString('en-IN');
+        document.getElementById('resSavings').textContent = '₹' + calculatedAnnualSavings.toLocaleString('en-IN');
+        document.getElementById('resPayback').textContent = computedPaybackYears.toFixed(1) + ' Years';
+        document.getElementById('resLTSavings').textContent = '₹' + computedLifetimeSavings.toLocaleString('en-IN');
+
+        // Update drag slider baseline val values
+        document.getElementById('baBeforeVal').textContent = '₹' + rawMonthlyBill.toLocaleString('en-IN');
+        document.getElementById('baAfterVal').textContent = '₹' + Math.floor(rawMonthlyBill * 0.25).toLocaleString('en-IN');
+      }
+
+      // 7. Interactive Before/After Split Bill Image Slider Control
+      const baContainer = document.getElementById('baContainer');
+      const baBefore = document.getElementById('baBefore');
+      const baHandle = document.getElementById('baHandle');
+
+      function valuateAndTranslateBA(clientXCoordinate) {
+        const rectBound = baContainer.getBoundingClientRect();
+        const pointerRelativeLeftOffset = clientXCoordinate - rectBound.left;
+        let scalePercentage = (pointerRelativeLeftOffset / rectBound.width) * 100;
+        
+        if (scalePercentage < 0) scalePercentage = 0;
+        if (scalePercentage > 100) scalePercentage = 100;
+
+        baBefore.style.clipPath = `polygon(0 0, ${scalePercentage}% 0, ${scalePercentage}% 100%, 0 100%)`;
+        baHandle.style.left = `${scalePercentage}%`;
+      }
+
+      // mouse coordination
+      let activeDragEvent = false;
+      baContainer.addEventListener('mousedown', () => { activeDragEvent = true; });
+      window.addEventListener('mouseup', () => { activeDragEvent = false; });
+      baContainer.addEventListener('mousemove', (e) => {
+        if (!activeDragEvent) return;
+        valuateAndTranslateBA(e.clientX);
+      });
+
+      // touches coordination
+      baContainer.addEventListener('touchstart', () => { activeDragEvent = true; });
+      window.addEventListener('touchend', () => { activeDragEvent = false; });
+      baContainer.addEventListener('touchmove', (e) => {
+        if (!activeDragEvent) return;
+        valuateAndTranslateBA(e.touches[0].clientX);
+      });
+
+      // 8. Collapsible Accordions Logics (Only one open at a time)
+      document.querySelectorAll('.accordion-header').forEach(hdr => {
+        hdr.addEventListener('click', () => {
+          const curItem = hdr.parentElement;
+          const openPrev = document.querySelector('.accordion-item.open');
+
+          if (openPrev && openPrev !== curItem) {
+            openPrev.classList.remove('open');
+            openPrev.querySelector('.accordion-content').style.maxHeight = '0';
+          }
+
+          curItem.classList.toggle('open');
+          const panelInside = curItem.querySelector('.accordion-content');
+          if (curItem.classList.contains('open')) {
+            panelInside.style.maxHeight = panelInside.scrollHeight + 'px';
+          } else {
+            panelInside.style.maxHeight = '0';
+          }
+        });
+      });
+
+      // 9. Input state validations & Form processing
+      function formatPhoneInput(inp) {
+        if (!inp.value.startsWith('+91 ')) {
+          inp.value = '+91 ' + inp.value.replace(/^\+91\s*/, '');
+        }
+      }
+
+      function submitProposal(e) {
+        e.preventDefault();
+        
+        const nameVal = document.getElementById('fullName').value.trim();
+        const mailVal = document.getElementById('emailAddr').value.trim();
+        const phoneVal = document.getElementById('phoneNum').value.trim();
+        const stateSelect = document.getElementById('formState').value;
+        const systemSelectValue = document.getElementById('selectedSys').value;
+
+        let valid = true;
+        
+        // simple 10 digit checks omitting generic state code
+        const numericRemainder = phoneVal.replace('+91', '').replace(/\s+/g, '');
+        if (numericRemainder.length < 10) {
+          document.getElementById('phoneNum').classList.add('has-error');
+          document.getElementById('errPhone').style.display = 'block';
+          valid = false;
+        } else {
+          document.getElementById('phoneNum').classList.remove('has-error');
+          document.getElementById('errPhone').style.display = 'none';
+        }
+
+        if (!valid) return;
+
+        // Populate Success view specs
+        document.getElementById('outName').textContent = nameVal;
+        document.getElementById('outPhone').textContent = phoneVal;
+        document.getElementById('outState').textContent = stateSelect;
+        document.getElementById('outSystem').textContent = systemSelectValue;
+        
+        // Estimate custom approved subsidy from system name
+        let sizeEstimate = '₹66,000 Approved';
+        if (systemSelectValue.includes('5kW')) {
+          sizeEstimate = '₹88,000 Approved';
+        } else if (systemSelectValue.includes('10kW')) {
+          sizeEstimate = '₹1,43,000 Approved';
+        }
+        document.getElementById('outSubsidy').textContent = sizeEstimate;
+
+        // Animate success screen state swap
+        document.getElementById('proposalForm').style.display = 'none';
+        document.getElementById('successBox').style.display = 'flex';
+      }
+
+      function resetFormState() {
+        document.getElementById('fullName').value = '';
+        document.getElementById('emailAddr').value = '';
+        document.getElementById('phoneNum').value = '+91 ';
+        document.getElementById('message').value = '';
+        document.getElementById('proposalForm').style.display = 'block';
+        document.getElementById('successBox').style.display = 'none';
+      }
+
+      // 10. Footer active simulated live counter incrementer
+      let yieldBaselineVal = 482910;
+      setInterval(() => {
+        const increment = Math.floor(Math.random() * 5) + 1;
+        yieldBaselineVal += increment;
+        const displayEl = document.getElementById('liveYield');
+        displayEl.textContent = yieldBaselineVal.toLocaleString('en-IN') + ' kWh';
+        
+        displayEl.style.color = '#ffffff';
+        displayEl.style.transform = 'scale(1.03)';
+        setTimeout(() => {
+          displayEl.style.color = 'var(--accent)';
+          displayEl.style.transform = 'scale(1)';
+        }, 200);
+      }, 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "aarunyaenergy",
+  "description": "A premium solar panel installation company landing page and interactive system modeler.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
