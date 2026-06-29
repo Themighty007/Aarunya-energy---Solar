@@ -180,11 +180,11 @@ export default function Hero() {
             />
           </svg>
 
-          {/* Floating Card 1: Left Card "Nova Array" */}
+          {/* Floating Card 1: Left Card "Aarunya Array" */}
           <div className="absolute top-10 left-4 sm:left-12 lg:left-[-110px] w-[260px] md:w-[280px] bg-[#1a2332]/50 border border-[#d4a843]/25 p-5 rounded-2xl backdrop-blur-xl shadow-2xl shadow-black/40 animate-float-up hover:scale-[1.02] hover:border-[#d4a843]/60 transition-all duration-300 group z-10">
             <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4a843]/40 to-transparent" />
             <div className="flex items-center justify-between mb-3 text-xs">
-              <span className="font-mono text-[#d4a843] tracking-wider uppercase font-semibold">Nova Array</span>
+              <span className="font-mono text-[#d4a843] tracking-wider uppercase font-semibold">Aarunya Array</span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
             </div>
             <p className="text-white/60 text-xs leading-relaxed mb-4">

@@ -19,8 +19,8 @@
 </div>
 
 <div align="center" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
-  <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Nova Array 3kW" width="48%" style="border-radius: 8px;" />
-  <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=80" alt="Nova Array 5kW" width="48%" style="border-radius: 8px;" />
+  <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Aarunya Array 3kW" width="48%" style="border-radius: 8px;" />
+  <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=80" alt="Aarunya Array 5kW" width="48%" style="border-radius: 8px;" />
 </div>
 
 ---
@@ -28,7 +28,7 @@
 ## ✨ Core Features
 
 *   **Interactive Savings Calculator**: Size your solar installation instantly. Calculate optimal system output (kW), breakeven lines (payback period), and 25-year lifetime savings based on monthly utility bills, home size, sun exposure rating, and ZIP code.
-*   **Product Showcase**: An elegant grid illustrating Tier-1 Nova Array systems (ranging from 3kW residential layouts to 10kW high-yield commercial installations) with integrated backup storage specifications.
+*   **Product Showcase**: An elegant grid illustrating Tier-1 Aarunya Array systems (ranging from 3kW residential layouts to 10kW high-yield commercial installations) with integrated backup storage specifications.
 *   **Seamless Quote Booking**: A comprehensive quote requesting interface that auto-fills options based on calculator inputs to secure tailored solar proposals.
 *   **Premium Visual Architecture**: Features dynamic dark mode styling, customized typography, clean borders, glassmorphic cards, smooth scroll-reveals, and responsive tactile hover feedback.
 
