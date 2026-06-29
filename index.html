@@ -1058,6 +1058,7 @@
       }
 
       /* CALCULATOR & BEFORE/AFTER SLIDER SECTION */
+      /* CALCULATOR & BEFORE/AFTER SLIDER SECTION */
       .calculator {
         background-color: var(--dark-surface);
         border-top: 1px solid var(--hairline);
@@ -1065,8 +1066,8 @@
       }
       .calc-grid {
         display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 64px;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 48px;
         align-items: start;
       }
       .calc-title {
@@ -1120,6 +1121,227 @@
         font-size: 0.94rem;
         outline: none;
         cursor: pointer;
+      }
+
+      /* ====== CALCULATOR ENHANCED STYLES ====== */
+      .calc-header {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+      .calc-input-panel {
+        background-color: var(--deep-space);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 32px;
+      }
+      .calc-toggle-group {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .calc-toggle {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 12px 10px;
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s var(--ease-out-expo);
+        position: relative;
+        white-space: nowrap;
+      }
+      .calc-toggle:hover {
+        border-color: #444444;
+        color: #ffffff;
+      }
+      .calc-toggle.active {
+        border-color: var(--accent);
+        background-color: rgba(200, 245, 0, 0.06);
+        color: #ffffff;
+        box-shadow: 0 0 16px rgba(200, 245, 0, 0.08);
+      }
+      .toggle-badge {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,0.06);
+        color: var(--text-secondary);
+        position: absolute;
+        top: -8px;
+        right: 8px;
+      }
+      .toggle-badge.recommended {
+        background-color: rgba(200, 245, 0, 0.15);
+        color: var(--accent);
+      }
+
+      .calc-slider-labels {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-secondary);
+        margin-top: 6px;
+        opacity: 0.6;
+      }
+
+      /* Advanced Options */
+      .advanced-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        background: none;
+        border: none;
+        border-top: 1px solid var(--hairline);
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        margin-top: 8px;
+      }
+      .advanced-toggle:hover {
+        color: var(--accent);
+      }
+      .advanced-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s var(--ease-out-expo), opacity 0.3s ease;
+        opacity: 0;
+      }
+      .advanced-panel.open {
+        max-height: 600px;
+        opacity: 1;
+      }
+
+      /* HERO RESULT */
+      .hero-result {
+        text-align: center;
+        padding: 28px 24px;
+        background: linear-gradient(135deg, rgba(200,245,0,0.04) 0%, rgba(200,245,0,0.01) 100%);
+        border: 1px solid rgba(200,245,0,0.12);
+        border-radius: 16px;
+        margin-bottom: 24px;
+      }
+      .hero-result .calc-label {
+        justify-content: center;
+        margin-bottom: 10px;
+        color: var(--text-secondary);
+      }
+      .hero-result-value {
+        font-family: var(--font-display);
+        font-size: 3.2rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1;
+        text-shadow: 0 0 40px rgba(200,245,0,0.2);
+      }
+
+      /* METRICS GRID */
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .metric-card {
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        transition: border-color 0.3s ease;
+      }
+      .metric-card:hover {
+        border-color: rgba(200,245,0,0.2);
+      }
+      .metric-value {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.1;
+      }
+      .metric-label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* SUBSIDY CARD */
+      .subsidy-card {
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+      }
+      .subsidy-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .subsidy-title {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .subsidy-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+      }
+      .subsidy-row span:last-child {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .accent-row span:last-child {
+        color: var(--accent) !important;
+      }
+      .subsidy-divider {
+        height: 1px;
+        background: var(--hairline);
+        margin: 4px 0;
+      }
+      .total-row {
+        font-weight: 600;
+      }
+      .total-row span:first-child {
+        color: #ffffff;
+      }
+      .total-row span:last-child {
+        font-size: 1.2rem;
+        color: var(--accent) !important;
       }
 
       /* BEFORE / AFTER SLIDER */
@@ -1222,26 +1444,149 @@
         justify-content: space-between;
         height: 100%;
       }
-      .results-grid {
+
+      /* CHART CARD */
+      .chart-card {
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 24px;
+      }
+      .chart-header {
+        margin-bottom: 16px;
+      }
+      .chart-title {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .chart-container {
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        height: 120px;
+        padding-top: 8px;
+      }
+      .chart-bar-wrapper {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        align-items: center;
+        gap: 6px;
+        height: 100%;
+        justify-content: flex-end;
       }
-      .result-item {
-        border-bottom: 1px solid var(--hairline);
-        padding-bottom: 16px;
+      .chart-bar {
+        width: 100%;
+        max-width: 28px;
+        background: linear-gradient(180deg, var(--accent) 0%, rgba(200,245,0,0.3) 100%);
+        border-radius: 4px 4px 0 0;
+        transition: height 0.6s var(--ease-out-expo);
+        min-height: 4px;
+        position: relative;
       }
-      .result-item:last-child {
+      .chart-bar:hover {
+        filter: brightness(1.2);
+      }
+      .chart-bar-tooltip {
+        position: absolute;
+        top: -24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--accent);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+      }
+      .chart-bar:hover .chart-bar-tooltip {
+        opacity: 1;
+      }
+      .chart-month {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      /* EXTRA METRICS */
+      .extra-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background-color: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+      .extra-metric {
+        background-color: #111111;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .extra-metric-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .extra-metric-value {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      /* RECOMMENDATIONS CARD */
+      .reco-card {
+        background-color: #111111;
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 0;
+      }
+      .reco-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .reco-item {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.45;
+        text-align: left;
+      }
+      .reco-item:last-child {
         border-bottom: none;
         padding-bottom: 0;
       }
-      .result-val {
-        font-family: var(--font-display);
-        font-size: 2.22rem;
-        font-weight: 800;
-        color: var(--accent);
-        line-height: 1.1;
+      .reco-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        margin-top: 1px;
       }
+      .reco-icon.info { color: #60a5fa; }
+      .reco-icon.success { color: var(--accent); }
+      .reco-icon.warning { color: #fbbf24; }
 
       /* TESTIMONIALS SECTION */
       .testimonials {
@@ -2100,10 +2445,10 @@
           <div class="product-card reveal-up" data-cat="res">
             <div>
               <div class="product-img-wrapper">
-                <img class="product-img" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Nova Array 3kW solar installation system">
+                <img class="product-img" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Aarunya Array 3kW solar installation system">
               </div>
               <span class="product-badge">RESIDENTIAL MATRIX</span>
-              <h3 class="product-title">Nova Array 3kW</h3>
+              <h3 class="product-title">Aarunya Array 3kW</h3>
               <p class="product-desc">Perfect choice for 2-3 BHK homes. Standard net metering integration with rapid direct rooftop mounts.</p>
               <div class="product-specs">
                 <span>3 kW Solar</span>
@@ -2113,7 +2458,7 @@
             </div>
             <div>
               <div class="product-price">₹1,20,000</div>
-              <button class="product-btn" onclick="selectSystem('Nova Array 3kW', 120000, 3)">Select System</button>
+              <button class="product-btn" onclick="selectSystem('Aarunya Array 3kW', 120000, 3)">Select System</button>
             </div>
           </div>
 
@@ -2121,10 +2466,10 @@
           <div class="product-card reveal-up" data-cat="res">
             <div>
               <div class="product-img-wrapper">
-                <img class="product-img" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=80" alt="Nova Array 5kW solar installation system with backup storage">
+                <img class="product-img" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=80" alt="Aarunya Array 5kW solar installation system with backup storage">
               </div>
               <span class="product-badge">COMPLETE COVERAGE BY AARUNYA</span>
-              <h3 class="product-title">Nova Array 5kW + Battery</h3>
+              <h3 class="product-title">Aarunya Array 5kW + Battery</h3>
               <p class="product-desc">Complete residential energy independence. Houses fully functional backups during grid outages.</p>
               <div class="product-specs">
                 <span>5 kW Solar</span>
@@ -2134,7 +2479,7 @@
             </div>
             <div>
               <div class="product-price">₹2,40,000</div>
-              <button class="product-btn" onclick="selectSystem('Nova Array 5kW + Battery', 240000, 5)">Select System</button>
+              <button class="product-btn" onclick="selectSystem('Aarunya Array 5kW + Battery', 240000, 5)">Select System</button>
             </div>
           </div>
 
@@ -2142,10 +2487,10 @@
           <div class="product-card reveal-up" data-cat="comm">
             <div>
               <div class="product-img-wrapper">
-                <img class="product-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Nova Array 10kW high yield solar system for commercial applications">
+                <img class="product-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Aarunya Array 10kW high yield solar system for commercial applications">
               </div>
               <span class="product-badge">HIGH YIELD SYSTEMS</span>
-              <h3 class="product-title">Nova Array 10kW</h3>
+              <h3 class="product-title">Aarunya Array 10kW</h3>
               <p class="product-desc">Optimized heavy-duty power array. Best option for large luxurious houses and small offices.</p>
               <div class="product-specs">
                 <span>10 kW High Power</span>
@@ -2155,7 +2500,7 @@
             </div>
             <div>
               <div class="product-price">₹4,50,000</div>
-              <button class="product-btn" onclick="selectSystem('Nova Array 10kW', 450000, 10)">Select System</button>
+              <button class="product-btn" onclick="selectSystem('Aarunya Array 10kW', 450000, 10)">Select System</button>
             </div>
           </div>
         </div>
@@ -2215,54 +2560,153 @@
       </div>
     </section>
 
-    <!-- SECTION H: INTERACTIVE TARIFF CALCULATOR WITH BEFORE/AFTER BILL DRAG SLIDER -->
+    <!-- SECTION H: AARUNYA PRECISION SOLAR SAVINGS ENGINE — TAMIL NADU -->
     <section class="calculator" id="calculator">
       <div class="container">
+        <div class="calc-header reveal-up">
+          <span class="label-mono" style="color: var(--accent); display: block; margin-bottom: 12px;">◆ PRECISION SOLAR ENGINE</span>
+          <h2 class="calc-title font-bold">Solar Savings Calculator</h2>
+          <p style="color: var(--text-secondary); max-width: 560px; margin-bottom: 48px;">Accurate estimates using TANGEDCO tariff slabs, PM Surya Ghar subsidies &amp; Tamil Nadu solar irradiation data.</p>
+        </div>
+
         <div class="calc-grid">
           
+          <!-- LEFT: INPUT PANEL -->
           <div class="reveal-left">
-            <h2 class="calc-title font-bold">Solar Savings Calculator</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 32px;">Configure parameters to estimate MNRE Surha Ghar subsidies and annual yields.</p>
-            
-            <div class="calc-group">
-              <div class="calc-label">
-                <span>Monthly Power Bill</span>
-                <span id="billVal" style="color: var(--accent); font-weight: bold;">₹5,500</span>
+            <div class="calc-input-panel">
+              
+              <!-- Consumer Type -->
+              <div class="calc-group">
+                <label class="calc-label" for="consumerType">Consumer Category</label>
+                <div class="calc-toggle-group" id="consumerTypeGroup">
+                  <button class="calc-toggle active" data-value="domestic" onclick="setConsumerType(this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Domestic
+                  </button>
+                  <button class="calc-toggle" data-value="commercial" onclick="setConsumerType(this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    Commercial
+                  </button>
+                  <button class="calc-toggle" data-value="industrial" onclick="setConsumerType(this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path></svg>
+                    Industrial
+                  </button>
+                </div>
               </div>
-              <div class="calc-slider-wrapper">
-                <input class="calc-slider" id="billSlider" type="range" min="1500" max="20000" step="500" value="5500" oninput="runCalculations()">
+
+              <!-- District -->
+              <div class="calc-group">
+                <label class="calc-label" for="districtSelect">Tamil Nadu District</label>
+                <select class="calc-select" id="districtSelect" onchange="runSolarCalculations()">
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+
+              <!-- Monthly Bill Slider -->
+              <div class="calc-group">
+                <div class="calc-label">
+                  <span>Monthly Electricity Bill</span>
+                  <span id="billDisplay" style="color: var(--accent); font-weight: bold;">₹3,000</span>
+                </div>
+                <div class="calc-slider-wrapper">
+                  <input class="calc-slider" id="billSlider" type="range" min="500" max="25000" step="250" value="3000" oninput="runSolarCalculations()">
+                  <div class="calc-slider-labels">
+                    <span>₹500</span>
+                    <span>₹25,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel Technology -->
+              <div class="calc-group">
+                <label class="calc-label">Panel Technology</label>
+                <div class="calc-toggle-group" id="panelTypeGroup">
+                  <button class="calc-toggle" data-value="mono_perc" onclick="setPanelType(this)">
+                    Mono PERC
+                    <span class="toggle-badge">Budget</span>
+                  </button>
+                  <button class="calc-toggle active" data-value="topcon" onclick="setPanelType(this)">
+                    TOPCon
+                    <span class="toggle-badge recommended">Recommended</span>
+                  </button>
+                  <button class="calc-toggle" data-value="hjt" onclick="setPanelType(this)">
+                    HJT
+                    <span class="toggle-badge">Premium</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Advanced Options Toggle -->
+              <button class="advanced-toggle" id="advancedToggle" onclick="toggleAdvanced()">
+                <span>Advanced Options</span>
+                <svg id="advancedChevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+
+              <!-- Advanced Options Panel -->
+              <div class="advanced-panel" id="advancedPanel">
+                
+                <!-- Shadow Percentage -->
+                <div class="calc-group">
+                  <div class="calc-label">
+                    <span>Roof Shadow</span>
+                    <span id="shadowDisplay" style="color: var(--accent);">10%</span>
+                  </div>
+                  <div class="calc-slider-wrapper">
+                    <input class="calc-slider" id="shadowSlider" type="range" min="0" max="50" step="5" value="10" oninput="updateShadow(); runSolarCalculations()">
+                    <div class="calc-slider-labels"><span>None</span><span>Heavy</span></div>
+                  </div>
+                </div>
+
+                <!-- Roof Direction -->
+                <div class="calc-group">
+                  <label class="calc-label" for="roofDirection">Roof Direction</label>
+                  <select class="calc-select" id="roofDirection" onchange="runSolarCalculations()">
+                    <option value="south" selected>South (Best)</option>
+                    <option value="south_east">South-East</option>
+                    <option value="south_west">South-West</option>
+                    <option value="east">East</option>
+                    <option value="west">West</option>
+                    <option value="north">North (Least Ideal)</option>
+                  </select>
+                </div>
+
+                <!-- Daytime Usage -->
+                <div class="calc-group">
+                  <div class="calc-label">
+                    <span>Daytime Usage (6AM-6PM)</span>
+                    <span id="daytimeDisplay" style="color: var(--accent);">40%</span>
+                  </div>
+                  <div class="calc-slider-wrapper">
+                    <input class="calc-slider" id="daytimeSlider" type="range" min="20" max="80" step="5" value="40" oninput="updateDaytime(); runSolarCalculations()">
+                    <div class="calc-slider-labels"><span>20%</span><span>80%</span></div>
+                  </div>
+                </div>
+
+                <!-- Installation Type -->
+                <div class="calc-group">
+                  <label class="calc-label">Installation Type</label>
+                  <div class="calc-toggle-group" id="installTypeGroup">
+                    <button class="calc-toggle active" data-value="on_grid" onclick="setInstallType(this)">On-Grid</button>
+                    <button class="calc-toggle" data-value="hybrid" onclick="setInstallType(this)">Hybrid (Battery)</button>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <div class="calc-group">
-              <label class="calc-label" for="stateSelect">State Location</label>
-              <select class="calc-select" id="stateSelect" onchange="runCalculations()">
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Karnataka" selected>Karnataka</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Delhi NCR">Delhi NCR</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Others">Others</option>
-              </select>
-            </div>
-
-            <!-- BEFORE AFTER BILL REDUX SLIDER -->
+            <!-- BEFORE/AFTER BILL DRAG SLIDER -->
             <div class="before-after-card">
-              <span class="before-after-title">Drag to reveal savings transformation</span>
+              <span class="before-after-title">Drag to compare your electricity bill</span>
               <div class="ba-slider-container" id="baContainer">
                 <div class="ba-side ba-before" id="baBefore">
-                  <span class="label-mono">BEFORE SOLAR BILL</span>
-                  <div class="ba-amount" id="baBeforeVal">₹5,500</div>
-                  <span style="font-size: 0.72rem; opacity: 0.7; margin-top: 8px;">Standard DISCOM Tariff</span>
+                  <span class="label-mono">BEFORE SOLAR</span>
+                  <div class="ba-amount" id="baBeforeVal">₹3,000</div>
+                  <span style="font-size: 0.72rem; opacity: 0.7; margin-top: 8px;">TANGEDCO Grid Tariff</span>
                 </div>
                 <div class="ba-side ba-after">
-                  <span class="label-mono">AFTER AARUNYA ACTIVE</span>
-                  <div class="ba-amount" id="baAfterVal">₹1,375</div>
-                  <span style="font-size: 0.72rem; opacity: 0.8; margin-top: 8px; color: var(--accent);">Net Metering Activated <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" style="display:inline-block; vertical-align:middle; width: 10px; height: 10px; color: var(--accent); margin-left: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                  <span class="label-mono">AFTER AARUNYA</span>
+                  <div class="ba-amount" id="baAfterVal">₹630</div>
+                  <span style="font-size: 0.72rem; opacity: 0.8; margin-top: 8px; color: var(--accent);">Net Metering Active <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" style="display:inline-block; vertical-align:middle; width: 10px; height: 10px; color: var(--accent); margin-left: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                 </div>
                 <div class="ba-handle" id="baHandle">
                   <div class="ba-thumb">↔</div>
@@ -2271,45 +2715,106 @@
             </div>
           </div>
 
+          <!-- RIGHT: RESULTS PANEL -->
           <div class="reveal-right">
             <div class="calc-results-panel">
-              <div class="results-grid">
-                
-                <div class="result-item">
-                  <span class="calc-label">RECOMMENDED GENERATOR SIZE</span>
-                  <div class="result-val" id="resSize">5 kW</div>
-                </div>
-
-                <div class="result-item">
-                  <span class="calc-label">ESTIMATED SYSTEM PRICE</span>
-                  <div class="result-val animate-num" id="resPrice">₹2,75,000</div>
-                </div>
-
-                <div class="result-item">
-                  <span class="calc-label">GOVT. SUBSIDY APPROVED</span>
-                  <div class="result-val" id="resSubsidy" style="color: var(--accent);">₹88,000</div>
-                </div>
-
-                <div class="result-item">
-                  <span class="calc-label">ESTIMATED ANNUAL UTILITIES SAVINGS</span>
-                  <div class="result-val" id="resSavings">₹49,500</div>
-                </div>
-
-                <div class="result-item">
-                  <span class="calc-label">PAYBACK INVESTMENT PERIOD</span>
-                  <div class="result-val" id="resPayback" style="color: #ffffff;">3.8 Years</div>
-                </div>
-
-                <div class="result-item">
-                  <span class="calc-label" style="color: var(--accent); font-weight: bold;">25-YEAR SYSTEM CREDITS SAVINGS</span>
-                  <div class="result-val" id="resLTSavings" style="color: var(--accent); font-size: 2.5rem;">₹12,37,500</div>
-                </div>
-
-              </div>
               
+              <!-- Hero Metric -->
+              <div class="hero-result">
+                <span class="calc-label">ESTIMATED ANNUAL SAVINGS</span>
+                <div class="hero-result-value" id="resAnnualSavings">₹36,000</div>
+              </div>
+
+              <!-- Key Metrics Grid -->
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                  <div class="metric-value" id="resSystemSize">3.8 kW</div>
+                  <div class="metric-label">System Size</div>
+                </div>
+                <div class="metric-card">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div class="metric-value" id="resPayback">4.2 Yrs</div>
+                  <div class="metric-label">Payback Period</div>
+                </div>
+                <div class="metric-card">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  <div class="metric-value" id="resROI">187%</div>
+                  <div class="metric-label">Return on Investment</div>
+                </div>
+                <div class="metric-card">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <div class="metric-value" id="resLifetime">₹9.0L</div>
+                  <div class="metric-label">25-Year Savings</div>
+                </div>
+              </div>
+
+              <!-- Subsidy Breakdown -->
+              <div class="subsidy-card" id="subsidyCard">
+                <div class="subsidy-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  <span class="subsidy-title">Financial Breakdown</span>
+                </div>
+                <div class="subsidy-row">
+                  <span>System Cost</span>
+                  <span id="resGrossCost">₹2,09,000</span>
+                </div>
+                <div class="subsidy-row accent-row">
+                  <span>PM Surya Ghar Subsidy</span>
+                  <span id="resSubsidyAmt">- ₹78,000</span>
+                </div>
+                <div class="subsidy-divider"></div>
+                <div class="subsidy-row total-row">
+                  <span>Your Net Investment</span>
+                  <span id="resNetCost">₹1,31,000</span>
+                </div>
+              </div>
+
+              <!-- Monthly Generation Chart -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <span class="chart-title">Monthly Solar Generation (kWh)</span>
+                </div>
+                <div class="chart-container" id="monthlyChart">
+                  <!-- Generated by JS -->
+                </div>
+              </div>
+
+              <!-- Additional Metrics -->
+              <div class="extra-metrics">
+                <div class="extra-metric">
+                  <span class="extra-metric-label">Monthly Generation</span>
+                  <span class="extra-metric-value" id="resMonthlyGen">420 kWh</span>
+                </div>
+                <div class="extra-metric">
+                  <span class="extra-metric-label">Annual Generation</span>
+                  <span class="extra-metric-value" id="resAnnualGen">5,040 kWh</span>
+                </div>
+                <div class="extra-metric">
+                  <span class="extra-metric-label">Panels Required</span>
+                  <span class="extra-metric-value" id="resPanelCount">7 panels</span>
+                </div>
+                <div class="extra-metric">
+                  <span class="extra-metric-label">CO₂ Offset (25 Yrs)</span>
+                  <span class="extra-metric-value" id="resCO2">86 tonnes</span>
+                </div>
+              </div>
+
+              <!-- Recommendations -->
+              <div class="reco-card" id="recoCard">
+                <div class="reco-header">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                  <span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Smart Recommendations</span>
+                </div>
+                <div id="recoList">
+                  <!-- Generated by JS -->
+                </div>
+              </div>
+
+              <!-- CTA -->
               <div style="margin-top: 24px;">
                 <a href="#contact" class="btn btn-primary" style="width: 100%;">
-                  Book Site Survey For this configuration
+                  Book Free Site Survey
                   <span class="btn-icon-circle">→</span>
                 </a>
               </div>
@@ -2573,9 +3078,9 @@
             <div class="form-group-full">
               <label class="form-lbl" for="selectedSys">Calculated Solar Matrix size</label>
               <select class="form-select" id="selectedSys">
-                <option value="Nova Array 3kW">Nova Array 3kW System (₹1,20,000)</option>
-                <option value="Nova Array 5kW + Battery" selected>Nova Array 5kW System + LFP Storage (₹2,40,000)</option>
-                <option value="Nova Array 10kW">Nova Array 10kW Heavy Load (₹4,50,000)</option>
+                <option value="Aarunya Array 3kW">Aarunya Array 3kW System (₹1,20,000)</option>
+                <option value="Aarunya Array 5kW + Battery" selected>Aarunya Array 5kW System + LFP Storage (₹2,40,000)</option>
+                <option value="Aarunya Array 10kW">Aarunya Array 10kW Heavy Load (₹4,50,000)</option>
               </select>
             </div>
 
@@ -2622,9 +3127,9 @@
           <div>
             <h4 class="footer-head">Systems</h4>
             <ul class="footer-links">
-              <li><a href="#systems">Nova Array 3kW</a></li>
-              <li><a href="#systems">Nova Array 5kW</a></li>
-              <li><a href="#systems">Nova Array 10kW</a></li>
+              <li><a href="#systems">Aarunya Array 3kW</a></li>
+              <li><a href="#systems">Aarunya Array 5kW</a></li>
+              <li><a href="#systems">Aarunya Array 10kW</a></li>
               <li><a href="#systems">Subsidies Filing</a></li>
             </ul>
           </div>
@@ -2819,55 +3324,443 @@
         bookingSec.scrollIntoView({ behavior: 'smooth' });
 
         // populate calculator slider directly
-        const requiredEstimateBillOnSize = (kwSize === 3) ? 3500 : (kwSize === 5 ? 7000 : 15000);
-        document.getElementById('billSlider').value = requiredEstimateBillOnSize;
-        runCalculations();
+        // mapped from typical kwSize: 3kW -> ₹3,500, 5kW -> ₹7,000, 10kW -> ₹15,000
+        const billVal = (kwSize === 3) ? 3500 : (kwSize === 5 ? 7000 : 15000);
+        const billSlider = document.getElementById('billSlider');
+        if (billSlider) {
+          billSlider.value = billVal;
+          runSolarCalculations();
+        }
       }
 
-      // 6. Indian Renewable Tariff Calculations Logics
-      function runCalculations() {
-        const rawMonthlyBill = parseFloat(document.getElementById('billSlider').value);
-        document.getElementById('billVal').textContent = '₹' + rawMonthlyBill.toLocaleString('en-IN');
+      // ====== SOLAR CALCULATOR CORE ENGINE ======
+      // Sourced inline for high stability and standalone deployment
+      const TANGEDCO_DOMESTIC_SLABS = [
+        { max: 100, rate: 0.00 },
+        { max: 200, rate: 2.35 },
+        { max: 400, rate: 4.70 },
+        { max: 500, rate: 6.30 },
+        { max: 600, rate: 8.40 },
+        { max: 800, rate: 9.45 },
+        { max: 1000, rate: 10.50 },
+        { max: Infinity, rate: 11.55 }
+      ];
 
-        // Dynamic System configuration mapping from Bill size
-        let systemSize = 3;
-        if (rawMonthlyBill > 10000) {
-          systemSize = 10;
-        } else if (rawMonthlyBill > 6000) {
-          systemSize = 8;
-        } else if (rawMonthlyBill > 3000) {
-          systemSize = 5;
+      const TANGEDCO_COMMERCIAL = { energyCharge: 9.40, demandCharge: 608.00 };
+      const TANGEDCO_INDUSTRIAL = { energyCharge: 7.50, demandCharge: 608.00 };
+
+      const PM_SURYA_GHAR_SUBSIDY = {
+        slab1Limit: 2, slab1Amount: 30000,
+        slab2Limit: 3, slab2Amount: 18000,
+        maxCap: 78000
+      };
+
+      const DISTRICT_PSH = {
+        'Ariyalur': 5.40, 'Chengalpattu': 5.25, 'Chennai': 5.30, 'Coimbatore': 5.20,
+        'Cuddalore': 5.30, 'Dharmapuri': 5.50, 'Dindigul': 5.49, 'Erode': 5.63,
+        'Kallakurichi': 5.35, 'Kanchipuram': 5.25, 'Kanyakumari': 5.20, 'Karur': 5.45,
+        'Krishnagiri': 5.45, 'Madurai': 5.35, 'Mayiladuthurai': 5.35, 'Nagapattinam': 5.35,
+        'Namakkal': 5.50, 'Nilgiris': 4.90, 'Perambalur': 5.40, 'Pudukkottai': 5.40,
+        'Ramanathapuram': 5.40, 'Ranipet': 5.50, 'Salem': 5.40, 'Sivaganga': 5.40,
+        'Tenkasi': 5.45, 'Thanjavur': 5.41, 'Theni': 5.45, 'Thoothukudi': 5.55,
+        'Tiruchirappalli': 5.40, 'Tirunelveli': 5.51, 'Tirupattur': 5.50, 'Tiruppur': 5.30,
+        'Tiruvallur': 5.25, 'Tiruvannamalai': 5.40, 'Tiruvarur': 5.35, 'Vellore': 5.58,
+        'Viluppuram': 5.35, 'Virudhunagar': 5.45
+      };
+
+      const MONTHLY_PSH_FACTORS = [0.92, 0.98, 1.08, 1.12, 1.08, 0.94, 0.86, 0.89, 0.95, 0.85, 0.80, 0.85];
+
+      const PANEL_DATABASE = {
+        'mono_perc': { name: 'Mono PERC', efficiency: 0.21, tempCoeff: -0.0037, degradationYr1: 0.015, degradationAnnual: 0.0055, wattage: 545 },
+        'topcon': { name: 'TOPCon', efficiency: 0.23, tempCoeff: -0.0029, degradationYr1: 0.010, degradationAnnual: 0.0040, wattage: 580 },
+        'hjt': { name: 'HJT', efficiency: 0.24, tempCoeff: -0.0025, degradationYr1: 0.005, degradationAnnual: 0.0030, wattage: 600 }
+      };
+
+      const SYSTEM_COST_PER_KW = [
+        { maxKW: 1, cost: 70000 }, { maxKW: 2, cost: 65000 }, { maxKW: 3, cost: 57000 },
+        { maxKW: 5, cost: 55000 }, { maxKW: 8, cost: 53000 }, { maxKW: 10, cost: 52000 },
+        { maxKW: Infinity, cost: 50000 }
+      ];
+
+      const SolarEngine = {
+        getDistricts: function() {
+          return Object.keys(DISTRICT_PSH).sort().map(k => ({ name: k, psh: DISTRICT_PSH[k] }));
+        },
+        calculateDomesticBiMonthlyBill: function(units) {
+          if (units <= 0) return 0;
+          const freeLimit = units <= 500 ? 200 : 100;
+          let remaining = Math.max(0, units - freeLimit);
+          let bill = 0, prev = 0;
+          for (let i = 0; i < TANGEDCO_DOMESTIC_SLABS.length; i++) {
+            const s = TANGEDCO_DOMESTIC_SLABS[i];
+            const unitsInSlab = Math.min(remaining, s.max - prev);
+            if (unitsInSlab <= 0) break;
+            bill += unitsInSlab * s.rate;
+            remaining -= unitsInSlab;
+            prev = s.max;
+            if (remaining <= 0) break;
+          }
+          const fixed = units <= 500 ? 50 : 150;
+          return Math.round((bill + fixed) * 1.05);
+        },
+        calculateUnitsFromBill: function(bill, category) {
+          if (!bill || bill <= 0) return 0;
+          if (category === 'commercial') {
+            const assumedKVA = Math.max(2, Math.min(10, Math.floor(bill / 1500)));
+            const fee = assumedKVA * TANGEDCO_COMMERCIAL.demandCharge;
+            return Math.round(Math.max(0, bill - fee) / TANGEDCO_COMMERCIAL.energyCharge);
+          }
+          if (category === 'industrial') {
+            const assumedKVA = Math.max(10, Math.min(100, Math.floor(bill / 2000)));
+            const fee = assumedKVA * TANGEDCO_INDUSTRIAL.demandCharge;
+            return Math.round(Math.max(0, bill - fee) / TANGEDCO_INDUSTRIAL.energyCharge);
+          }
+          const bimonthlyBill = bill * 2;
+          let low = 0, high = 5000, units = 0;
+          for (let i = 0; i < 20; i++) {
+            const mid = (low + high) / 2;
+            const cb = this.calculateDomesticBiMonthlyBill(mid);
+            if (Math.abs(cb - bimonthlyBill) < 1) { units = mid; break; }
+            if (cb > bimonthlyBill) high = mid; else low = mid;
+          }
+          return Math.round(units / 2);
+        },
+        calculateSystemSize: function(monthlyUnits, districtName, panelType, shadowPercent, roofDirection) {
+          const psh = DISTRICT_PSH[districtName] || 5.30;
+          const panel = PANEL_DATABASE[panelType] || PANEL_DATABASE['topcon'];
+          const dirMap = { 'south': 1.0, 'south_east': 0.95, 'south_west': 0.95, 'east': 0.87, 'west': 0.87, 'north': 0.70 };
+          const directionFactor = dirMap[roofDirection] || 1.0;
+          const shadowLoss = shadowPercent / 100;
+          const pr = 0.96 * 0.98 * 0.96 * (1 + (panel.tempCoeff * 20)); // Temp rise: 20C
+          const annualGenPerKW = psh * 365 * pr * (1 - shadowLoss) * directionFactor;
+          if (annualGenPerKW <= 0) return 3.0;
+          let kw = (monthlyUnits * 12) / annualGenPerKW;
+          kw = Math.round(kw * 2) / 2;
+          return Math.max(1.0, Math.min(100.0, kw));
+        },
+        calculateSubsidy: function(systemKW, category) {
+          if (category !== 'domestic') return { eligible: false, subsidyAmount: 0 };
+          let sub = 0;
+          if (systemKW >= 1) sub += Math.min(systemKW, 2) * 30000;
+          if (systemKW > 2) sub += Math.min(systemKW - 2, 1) * 18000;
+          sub = Math.min(sub, 78000);
+          return { eligible: true, subsidyAmount: sub };
+        },
+        calculateSystemCost: function(systemKW, panelType, installationType, batteryKWh) {
+          let kwCost = 50000;
+          for (let i = 0; i < SYSTEM_COST_PER_KW.length; i++) {
+            if (systemKW <= SYSTEM_COST_PER_KW[i].maxKW) { kwCost = SYSTEM_COST_PER_KW[i].cost; break; }
+          }
+          let markup = panelType === 'hjt' ? 1.15 : (panelType === 'topcon' ? 1.05 : 1.0);
+          const gross = systemKW * kwCost * markup;
+          const battery = (installationType === 'hybrid' && batteryKWh) ? (batteryKWh * 10000) : 0;
+          return { grossCost: Math.round(gross), batteryAddon: battery, totalCost: Math.round(gross + battery) };
+        },
+        calculateAnnualGeneration: function(systemKW, districtName, panelType, shadowPercent, roofDirection, year) {
+          const psh = DISTRICT_PSH[districtName] || 5.30;
+          const panel = PANEL_DATABASE[panelType];
+          const dirMap = { 'south': 1.0, 'south_east': 0.95, 'south_west': 0.95, 'east': 0.87, 'west': 0.87, 'north': 0.70 };
+          const directionFactor = dirMap[roofDirection] || 1.0;
+          const shadowLoss = shadowPercent / 100;
+          const pr = 0.96 * 0.98 * 0.96 * (1 + (panel.tempCoeff * 20));
+          let gen = systemKW * psh * 365 * pr * (1 - shadowLoss) * directionFactor;
+          if (year > 1) {
+            const deg = panel.degradationYr1 + (panel.degradationAnnual * (year - 2));
+            gen = gen * (1 - deg);
+          }
+          return Math.round(gen);
+        },
+        calculateMonthlyGeneration: function(systemKW, districtName, panelType, shadowPercent, roofDirection) {
+          const annual = this.calculateAnnualGeneration(systemKW, districtName, panelType, shadowPercent, roofDirection, 1);
+          const totalFactor = MONTHLY_PSH_FACTORS.reduce((a, b) => a + b, 0);
+          return MONTHLY_PSH_FACTORS.map(f => Math.round((annual * f) / totalFactor));
+        },
+        calculateBillSavings: function(bill, avgGen, category, daytimePercent) {
+          if (!bill || bill <= 0) return { currentBill: 0, newBill: 0, monthlySavings: 0, annualSavings: 0 };
+          if (category === 'commercial' || category === 'industrial') {
+            const rate = category === 'commercial' ? TANGEDCO_COMMERCIAL.energyCharge : TANGEDCO_INDUSTRIAL.energyCharge;
+            const fee = (category === 'commercial' ? 4 : 40) * (category === 'commercial' ? TANGEDCO_COMMERCIAL.demandCharge : TANGEDCO_INDUSTRIAL.demandCharge);
+            const units = Math.max(0, Math.round((bill - fee) / rate) - avgGen);
+            const newBill = Math.round((units * rate) + fee);
+            return { currentBill: bill, newBill, monthlySavings: Math.max(0, bill - newBill), annualSavings: Math.max(0, bill - newBill) * 12 };
+          }
+          const monthlyUnits = this.calculateUnitsFromBill(bill, 'domestic');
+          const netBimonthly = Math.max(0, (monthlyUnits * 2) - (avgGen * 2));
+          const newMonthly = Math.round(this.calculateDomesticBiMonthlyBill(netBimonthly) / 2);
+          const savings = Math.max(0, bill - newMonthly);
+          return { currentBill: bill, newBill: newMonthly, monthlySavings: savings, annualSavings: savings * 12 };
+        },
+        calculateFinancials: function(systemKW, districtName, panelType, netCost, annualSavingsYr1, category) {
+          let cum = -netCost, totalSav = 0, payback = 25, pbFound = false;
+          const initialMaint = systemKW * 1000;
+          const initialCost = systemKW * 55000;
+          const breakdown = [];
+          
+          for (let yr = 1; yr <= 25; yr++) {
+            const gen = this.calculateAnnualGeneration(systemKW, districtName, panelType, 10, 'south', yr);
+            const sav = annualSavingsYr1 * Math.pow(1.05, yr - 1) * (gen / this.calculateAnnualGeneration(systemKW, districtName, panelType, 10, 'south', 1));
+            let opex = initialMaint * Math.pow(1.03, yr - 1);
+            if (yr === 13) opex += initialCost * 0.15;
+            const netBenefit = sav - opex;
+            cum += netBenefit;
+            totalSav += sav;
+            if (cum >= 0 && !pbFound) {
+              payback = (yr - 1) + (Math.abs(cum - netBenefit) / netBenefit);
+              pbFound = true;
+            }
+            breakdown.push({ year: yr, cumulative: Math.round(cum) });
+          }
+          return {
+            paybackYears: pbFound ? payback : 25,
+            roi: netCost > 0 ? (totalSav / netCost) * 100 : 0,
+            lifetimeSavings25: Math.round(totalSav),
+            carbonOffset25: this.calculateAnnualGeneration(systemKW, districtName, panelType, 10, 'south', 1) * 25 * 0.82
+          };
+        },
+        generateRecommendations: function(inputs, results) {
+          const recos = [];
+          const psh = DISTRICT_PSH[inputs.district] || 5.3;
+          if (psh >= 5.5) {
+            recos.push({ type: 'success', text: inputs.district + ' is in a high solar irradiation zone (PSH: ' + psh.toFixed(2) + '). Yields will be outstanding.' });
+          } else {
+            recos.push({ type: 'info', text: inputs.district + ' averages ' + psh.toFixed(2) + ' Peak Sun Hours daily, ensuring reliable year-round performance.' });
+          }
+          if (inputs.panelType === 'topcon') {
+            recos.push({ type: 'success', text: 'TOPCon panels offer the optimal balance of efficiency and heat tolerance for Tamil Nadu.' });
+          } else if (inputs.panelType === 'mono_perc') {
+            recos.push({ type: 'warning', text: 'Mono PERC panels are cheap but lose more efficiency in high ambient summer temperatures.' });
+          } else {
+            recos.push({ type: 'success', text: 'Premium HJT panels will generate up to 8% more energy during hot summer afternoons.' });
+          }
+          if (inputs.shadowPercent >= 20) {
+            recos.push({ type: 'warning', text: 'A ' + inputs.shadowPercent + '% shadow level reduces payback. Consider micro-inverters.' });
+          }
+          if (inputs.roofDirection === 'north') {
+            recos.push({ type: 'warning', text: 'North direction reduces generation by ~30%. Use structural tilt work to face South.' });
+          } else if (inputs.roofDirection === 'south') {
+            recos.push({ type: 'success', text: 'True-South orientation captured. This guarantees peak year-round generation.' });
+          }
+          if (inputs.consumerType === 'domestic' && results.systemKW <= 10) {
+            recos.push({ type: 'success', text: 'Your residential system is eligible for ₹' + results.subsidyAmount.toLocaleString('en-IN') + ' PM Surya Ghar subsidy.' });
+          }
+          if (inputs.installationType === 'hybrid') {
+            recos.push({ type: 'warning', text: 'Battery bank adds ₹' + (results.batteryKWh * 10000).toLocaleString('en-IN') + ' to system cost, but secures full power backup.' });
+          }
+          return recos;
+        },
+        formatINR: function(amt) {
+          return '₹' + Math.round(amt).toLocaleString('en-IN');
+        },
+        formatINRCompact: function(amt) {
+          if (amt >= 10000000) return '₹' + (amt / 10000000).toFixed(2) + ' Cr';
+          if (amt >= 100000) return '₹' + (amt / 100000).toFixed(1) + ' L';
+          return '₹' + Math.round(amt).toLocaleString('en-IN');
         }
+      };
 
-        const costPerKW = 55000;
-        const totalSystemCost = systemSize * costPerKW;
+      // ====== CALCULATOR UI CONTROLLER ======
+      let calcState = {
+        consumerType: 'domestic',
+        district: 'Chennai',
+        monthlyBill: 3000,
+        panelType: 'topcon',
+        shadowPercent: 10,
+        roofDirection: 'south',
+        daytimePercent: 40,
+        installationType: 'on_grid'
+      };
 
-        // Custom accurate MNRE subsidy rules matrix:
-        // 40% for the first 3kW, 20% for sizes above on next 3-10kW bracket
-        let computedSubsidy = 0;
-        if (systemSize <= 3) {
-          computedSubsidy = systemSize * costPerKW * 0.40;
-        } else {
-          computedSubsidy = (3 * costPerKW * 0.40) + ((systemSize - 3) * costPerKW * 0.20);
-        }
-
-        const netClientCost = totalSystemCost - computedSubsidy;
-        const calculatedAnnualSavings = Math.floor(rawMonthlyBill * 12 * 0.75); // accounts for typical 75% bill offset
-        const computedPaybackYears = calculatedAnnualSavings > 0 ? (netClientCost / calculatedAnnualSavings) : 0;
-        const computedLifetimeSavings = calculatedAnnualSavings * 25;
-
-        // Update active result displays
-        document.getElementById('resSize').textContent = systemSize + ' kW';
-        document.getElementById('resPrice').textContent = '₹' + totalSystemCost.toLocaleString('en-IN');
-        document.getElementById('resSubsidy').textContent = '₹' + computedSubsidy.toLocaleString('en-IN');
-        document.getElementById('resSavings').textContent = '₹' + calculatedAnnualSavings.toLocaleString('en-IN');
-        document.getElementById('resPayback').textContent = computedPaybackYears.toFixed(1) + ' Years';
-        document.getElementById('resLTSavings').textContent = '₹' + computedLifetimeSavings.toLocaleString('en-IN');
-
-        // Update drag slider baseline val values
-        document.getElementById('baBeforeVal').textContent = '₹' + rawMonthlyBill.toLocaleString('en-IN');
-        document.getElementById('baAfterVal').textContent = '₹' + Math.floor(rawMonthlyBill * 0.25).toLocaleString('en-IN');
+      function initDistrictDropdown() {
+        const select = document.getElementById('districtSelect');
+        if (!select) return;
+        const districts = SolarEngine.getDistricts();
+        select.innerHTML = '';
+        districts.forEach(function(d) {
+          const opt = document.createElement('option');
+          opt.value = d.name;
+          opt.textContent = d.name + ' (' + d.psh.toFixed(1) + ' PSH)';
+          if (d.name === 'Chennai') opt.selected = true;
+          select.appendChild(opt);
+        });
       }
+
+      function setConsumerType(btn) {
+        document.querySelectorAll('#consumerTypeGroup .calc-toggle').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        calcState.consumerType = btn.getAttribute('data-value');
+        runSolarCalculations();
+      }
+      function setPanelType(btn) {
+        document.querySelectorAll('#panelTypeGroup .calc-toggle').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        calcState.panelType = btn.getAttribute('data-value');
+        runSolarCalculations();
+      }
+      function setInstallType(btn) {
+        document.querySelectorAll('#installTypeGroup .calc-toggle').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        calcState.installationType = btn.getAttribute('data-value');
+        runSolarCalculations();
+      }
+
+      function toggleAdvanced() {
+        const panel = document.getElementById('advancedPanel');
+        const chevron = document.getElementById('advancedChevron');
+        panel.classList.toggle('open');
+        chevron.style.transform = panel.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+
+      function updateShadow() {
+        document.getElementById('shadowDisplay').textContent = document.getElementById('shadowSlider').value + '%';
+      }
+      function updateDaytime() {
+        document.getElementById('daytimeDisplay').textContent = document.getElementById('daytimeSlider').value + '%';
+      }
+
+      function animateValue(el, newText) {
+        if (!el) return;
+        el.style.transition = 'opacity 0.1s ease';
+        el.style.opacity = '0.4';
+        setTimeout(function() {
+          el.textContent = newText;
+          el.style.opacity = '1';
+        }, 100);
+      }
+
+      function renderMonthlyChart(monthlyData) {
+        const container = document.getElementById('monthlyChart');
+        if (!container) return;
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const maxVal = Math.max(...monthlyData);
+        let html = '';
+        for (let i = 0; i < 12; i++) {
+          const heightPct = maxVal > 0 ? (monthlyData[i] / maxVal) * 100 : 0;
+          html += '<div class="chart-bar-wrapper">' +
+            '<div class="chart-bar" style="height: ' + heightPct + '%;">' +
+            '<span class="chart-bar-tooltip">' + Math.round(monthlyData[i]) + '</span>' +
+            '</div>' +
+            '<span class="chart-month">' + months[i] + '</span>' +
+            '</div>';
+        }
+        container.innerHTML = html;
+      }
+
+      function renderRecommendations(recos) {
+        const container = document.getElementById('recoList');
+        if (!container) return;
+        const iconMap = { info: 'ℹ️', success: '✅', warning: '⚠️' };
+        let html = '';
+        recos.forEach(function(r) {
+          html += '<div class="reco-item">' +
+            '<span class="reco-icon ' + r.type + '">' + iconMap[r.type] + '</span>' +
+            '<span>' + r.text + '</span>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+      }
+
+      function runSolarCalculations() {
+        const billSlider = document.getElementById('billSlider');
+        const districtSelect = document.getElementById('districtSelect');
+        const shadowSlider = document.getElementById('shadowSlider');
+        const roofDirection = document.getElementById('roofDirection');
+        const daytimeSlider = document.getElementById('daytimeSlider');
+
+        if (!billSlider || !districtSelect) return;
+
+        calcState.monthlyBill = parseFloat(billSlider.value);
+        calcState.district = districtSelect.value;
+        calcState.shadowPercent = shadowSlider ? parseFloat(shadowSlider.value) : 10;
+        calcState.roofDirection = roofDirection ? roofDirection.value : 'south';
+        calcState.daytimePercent = daytimeSlider ? parseFloat(daytimeSlider.value) : 40;
+
+        document.getElementById('billDisplay').textContent = SolarEngine.formatINR(calcState.monthlyBill);
+
+        const monthlyUnits = SolarEngine.calculateUnitsFromBill(calcState.monthlyBill, calcState.consumerType);
+        const systemKW = SolarEngine.calculateSystemSize(
+          monthlyUnits, calcState.district, calcState.panelType,
+          calcState.shadowPercent, calcState.roofDirection
+        );
+
+        const batteryKWh = calcState.installationType === 'hybrid' ? Math.ceil(systemKW * 2) : 0;
+        const costResult = SolarEngine.calculateSystemCost(systemKW, calcState.panelType, calcState.installationType, batteryKWh);
+        const subsidyResult = SolarEngine.calculateSubsidy(systemKW, calcState.consumerType);
+        const netCost = costResult.totalCost - subsidyResult.subsidyAmount;
+
+        const monthlyGen = SolarEngine.calculateMonthlyGeneration(
+          systemKW, calcState.district, calcState.panelType,
+          calcState.shadowPercent, calcState.roofDirection
+        );
+        const annualGen = monthlyGen.reduce((a, b) => a + b, 0);
+        const avgMonthlyGen = annualGen / 12;
+
+        const savingsResult = SolarEngine.calculateBillSavings(
+          calcState.monthlyBill, avgMonthlyGen, calcState.consumerType, calcState.daytimePercent
+        );
+
+        const financials = SolarEngine.calculateFinancials(
+          systemKW, calcState.district, calcState.panelType,
+          netCost, savingsResult.annualSavings, calcState.consumerType
+        );
+
+        const panelWattages = { mono_perc: 545, topcon: 580, hjt: 600 };
+        const panelCount = Math.ceil((systemKW * 1000) / panelWattages[calcState.panelType]);
+
+        const recos = SolarEngine.generateRecommendations(calcState, {
+          systemKW: systemKW,
+          annualSavings: savingsResult.annualSavings,
+          paybackYears: financials.paybackYears,
+          subsidyEligible: subsidyResult.eligible,
+          subsidyAmount: subsidyResult.subsidyAmount,
+          netCost: netCost,
+          annualGeneration: annualGen,
+          roi: financials.roi,
+          batteryKWh: batteryKWh
+        });
+
+        animateValue(document.getElementById('resAnnualSavings'), SolarEngine.formatINR(savingsResult.annualSavings));
+        animateValue(document.getElementById('resSystemSize'), systemKW.toFixed(1) + ' kW');
+        animateValue(document.getElementById('resPayback'), financials.paybackYears.toFixed(1) + ' Yrs');
+        animateValue(document.getElementById('resROI'), Math.round(financials.roi) + '%');
+        animateValue(document.getElementById('resLifetime'), SolarEngine.formatINRCompact(financials.lifetimeSavings25));
+
+        const subsidyCard = document.getElementById('subsidyCard');
+        if (subsidyCard) {
+          if (subsidyResult.eligible) {
+            document.getElementById('resGrossCost').textContent = SolarEngine.formatINR(costResult.totalCost);
+            document.getElementById('resSubsidyAmt').textContent = '- ' + SolarEngine.formatINR(subsidyResult.subsidyAmount);
+            document.getElementById('resNetCost').textContent = SolarEngine.formatINR(netCost);
+            subsidyCard.querySelectorAll('.subsidy-row, .subsidy-divider').forEach(el => el.style.display = '');
+            const msg = subsidyCard.querySelector('.subsidy-not-eligible');
+            if (msg) msg.style.display = 'none';
+          } else {
+            document.getElementById('resGrossCost').textContent = SolarEngine.formatINR(costResult.totalCost);
+            document.getElementById('resSubsidyAmt').textContent = '₹0';
+            document.getElementById('resNetCost').textContent = SolarEngine.formatINR(costResult.totalCost);
+            subsidyCard.querySelectorAll('.subsidy-row, .subsidy-divider').forEach(el => {
+              if (el.classList.contains('accent-row')) el.style.display = 'none';
+            });
+          }
+        }
+
+        renderMonthlyChart(monthlyGen);
+
+        animateValue(document.getElementById('resMonthlyGen'), Math.round(avgMonthlyGen).toLocaleString('en-IN') + ' kWh');
+        animateValue(document.getElementById('resAnnualGen'), Math.round(annualGen).toLocaleString('en-IN') + ' kWh');
+        animateValue(document.getElementById('resPanelCount'), panelCount + ' panels');
+        animateValue(document.getElementById('resCO2'), Math.round(financials.carbonOffset25 / 1000) + ' tonnes');
+
+        document.getElementById('baBeforeVal').textContent = SolarEngine.formatINR(calcState.monthlyBill);
+        document.getElementById('baAfterVal').textContent = SolarEngine.formatINR(savingsResult.newBill);
+
+        renderRecommendations(recos);
+      }
+
+      // Initialize dropdown & default calculations on load
+      setTimeout(function() {
+        initDistrictDropdown();
+        runSolarCalculations();
+      }, 100);
 
       // 7. Interactive Before/After Split Bill Image Slider Control
       const baContainer = document.getElementById('baContainer');
@@ -2888,20 +3781,22 @@
 
       // mouse coordination
       let activeDragEvent = false;
-      baContainer.addEventListener('mousedown', () => { activeDragEvent = true; });
-      window.addEventListener('mouseup', () => { activeDragEvent = false; });
-      baContainer.addEventListener('mousemove', (e) => {
-        if (!activeDragEvent) return;
-        valuateAndTranslateBA(e.clientX);
-      });
+      if (baContainer) {
+        baContainer.addEventListener('mousedown', () => { activeDragEvent = true; });
+        window.addEventListener('mouseup', () => { activeDragEvent = false; });
+        baContainer.addEventListener('mousemove', (e) => {
+          if (!activeDragEvent) return;
+          valuateAndTranslateBA(e.clientX);
+        });
 
-      // touches coordination
-      baContainer.addEventListener('touchstart', () => { activeDragEvent = true; });
-      window.addEventListener('touchend', () => { activeDragEvent = false; });
-      baContainer.addEventListener('touchmove', (e) => {
-        if (!activeDragEvent) return;
-        valuateAndTranslateBA(e.touches[0].clientX);
-      });
+        // touches coordination
+        baContainer.addEventListener('touchstart', () => { activeDragEvent = true; });
+        window.addEventListener('touchend', () => { activeDragEvent = false; });
+        baContainer.addEventListener('touchmove', (e) => {
+          if (!activeDragEvent) return;
+          valuateAndTranslateBA(e.touches[0].clientX);
+        });
+      }
 
       // 8. Collapsible Accordions Logics (Only one open at a time)
       document.querySelectorAll('.accordion-header').forEach(hdr => {
