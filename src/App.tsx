@@ -10,7 +10,7 @@ import TrustBar from "./components/TrustBar";
 import WhyAura from "./components/WhyAura";
 import ProductShowcase from "./components/ProductShowcase";
 import SavingsCalculator from "./components/SavingsCalculator";
-import Testimonials from "./components/Testimonials";
+
 import FAQs from "./components/FAQs";
 import OrderQuoteSystem from "./components/OrderQuoteSystem";
 import Footer from "./components/Footer";
@@ -60,8 +60,7 @@ export default function App() {
       {/* 6. Active calculation slider modelers */}
       <SavingsCalculator />
 
-      {/* 7. Carousel client story validations */}
-      <Testimonials />
+
 
       {/* 8. Collapsible structural Accordions FAQs */}
       <FAQs />

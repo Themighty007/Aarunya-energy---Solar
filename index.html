@@ -2108,6 +2108,180 @@
           transform: none;
         }
       }
+
+      /* LEAD CONSOLE MODAL Styles */
+      .lead-modal {
+        position: fixed;
+        z-index: 3000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(5, 5, 5, 0.9);
+        backdrop-filter: blur(8px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .lead-modal.active {
+        opacity: 1;
+        display: flex;
+      }
+      .lead-modal-content {
+        background-color: var(--dark-surface);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 900px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        transform: translateY(20px);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .lead-modal.active .lead-modal-content {
+        transform: translateY(0);
+      }
+      .lead-modal-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--hairline);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .lead-modal-header h3 {
+        font-size: 1.25rem;
+        font-family: var(--font-display);
+        color: #ffffff;
+      }
+      .lead-modal-close {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      .lead-modal-close:hover {
+        color: var(--accent);
+      }
+      .lead-modal-body {
+        padding: 24px;
+        overflow-y: auto;
+        flex-grow: 1;
+      }
+      .lead-modal-desc {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+      .integration-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 24px;
+        background: #181818;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--hairline);
+      }
+      .lead-input {
+        flex-grow: 1;
+        background: #090909;
+        border: 1px solid var(--hairline);
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: #ffffff;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+      }
+      .lead-input:focus {
+        border-color: var(--accent);
+        outline: none;
+      }
+      .btn-console {
+        background-color: var(--accent);
+        color: var(--text-dark-primary);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: opacity 0.2s ease;
+      }
+      .btn-console:hover {
+        opacity: 0.9;
+      }
+      .btn-console.btn-danger {
+        background-color: #ff4444;
+        color: #ffffff;
+      }
+      .link-get-key {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .lead-table-wrapper {
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #090909;
+      }
+      .lead-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.8rem;
+        color: #ffffff;
+      }
+      .lead-table th {
+        background: #181818;
+        padding: 12px 16px;
+        font-family: var(--font-display);
+        font-weight: 600;
+        border-bottom: 1px solid var(--hairline);
+        color: var(--text-secondary);
+      }
+      .lead-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--hairline);
+        vertical-align: top;
+      }
+      .lead-table tr:last-child td {
+        border-bottom: none;
+      }
+      .lead-table tr:hover {
+        background: rgba(255,255,255,0.02);
+      }
+      .lead-modal-footer {
+        padding: 20px 24px;
+        border-top: 1px solid var(--hairline);
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+      .btn-delete-lead {
+        background: none;
+        border: none;
+        color: #ff4444;
+        cursor: pointer;
+        font-size: 0.8rem;
+        text-decoration: underline;
+      }
+      .btn-delete-lead:hover {
+        color: #ff6666;
+      }
     </style>
   </head>
   <body>
@@ -2453,11 +2627,10 @@
               <div class="product-specs">
                 <span>3 kW Solar</span>
                 <span class="spec-dot"></span>
-                <span>Optimized Inverters</span>
+                <span>Optimized Inverters (On-Grid Type)</span>
               </div>
             </div>
             <div>
-              <div class="product-price">₹1,20,000</div>
               <button class="product-btn" onclick="selectSystem('Aarunya Array 3kW', 120000, 3)">Select System</button>
             </div>
           </div>
@@ -2474,11 +2647,10 @@
               <div class="product-specs">
                 <span>5 kW Solar</span>
                 <span class="spec-dot"></span>
-                <span>LFP Storage</span>
+                <span>LFP Storage (Hybrid Type)</span>
               </div>
             </div>
             <div>
-              <div class="product-price">₹2,40,000</div>
               <button class="product-btn" onclick="selectSystem('Aarunya Array 5kW + Battery', 240000, 5)">Select System</button>
             </div>
           </div>
@@ -2495,11 +2667,10 @@
               <div class="product-specs">
                 <span>10 kW High Power</span>
                 <span class="spec-dot"></span>
-                <span>3-Phase Inverters</span>
+                <span>3-Phase Inverters (On-Grid Type)</span>
               </div>
             </div>
             <div>
-              <div class="product-price">₹4,50,000</div>
               <button class="product-btn" onclick="selectSystem('Aarunya Array 10kW', 450000, 10)">Select System</button>
             </div>
           </div>
@@ -2539,7 +2710,7 @@
             <div class="compare-cell font-bold">Performance Warranty</div>
             <div class="compare-cell">Basic 5 Years</div>
             <div class="compare-cell">None Provided</div>
-            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">25 Year Protection <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">Varies by Plan <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
           </div>
 
           <div class="compare-grid">
@@ -2553,7 +2724,7 @@
             <div class="compare-cell font-bold">After-Sales SLA</div>
             <div class="compare-cell">Typically Unreponsive</div>
             <div class="compare-cell">No Support Channels</div>
-            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">24 / 7 Helplines <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div class="compare-cell aarunya-col font-bold" style="color: var(--accent);">Call Support <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" style="display:inline-block; vertical-align:middle; width: 12px; height: 12px; color: var(--accent); margin-left: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
           </div>
 
         </div>
@@ -2825,101 +2996,28 @@
       </div>
     </section>
 
-    <!-- SECTION I: VERIFIED REVIEWS FROM INDIAN HOMES -->
-    <section class="testimonials">
-      <div class="container">
-        <h2 class="testimonials-headline reveal-up">Voices of Our Pioneer Adopters</h2>
-        <div class="testimonials-grid">
-          
-          <!-- Review 1 -->
-          <div class="testimonial-card reveal-up">
-            <div>
-              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              </div>
-              <p class="quote-text">"Having early access to Aarunya's modern modular layers is incredible. The structural engineering is solid, of high aesthetic precision, and structural installation took only 48 hours."</p>
-            </div>
-            <div class="profile-row">
-              <div class="profile-initials">RK</div>
-              <div>
-                <h4 class="profile-name">Rajesh K.</h4>
-                <p class="profile-meta">BANGALORE • 5kW SOLAR MATRIX</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Review 2 -->
-          <div class="testimonial-card reveal-up">
-            <div>
-              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              </div>
-              <p class="quote-text">"Their design phase was highly comprehensive and tactile. They mapped our rooftop exposure using advanced solar path analysis and automated our PM Surya Ghar subsidy application perfectly."</p>
-            </div>
-            <div class="profile-row">
-              <div class="profile-initials">PM</div>
-              <div>
-                <h4 class="profile-name">Priya M.</h4>
-                <p class="profile-meta">KOCHI • 3kW SOLAR MATRIX</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Review 3 -->
-          <div class="testimonial-card reveal-up">
-            <div>
-              <div class="quote-stars" style="display: flex; gap: 4px; align-items: center; color: var(--accent); margin-bottom: 16px;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              </div>
-              <p class="quote-text">"We are proud backing Aarunya's inaugural residential grid rollout. The real-time generation metrics panel is pristine, and our baseline DISCOM charges are already down to zero."</p>
-            </div>
-            <div class="profile-row">
-              <div class="profile-initials">AS</div>
-              <div>
-                <h4 class="profile-name">Amit S.</h4>
-                <p class="profile-meta">JAIPUR • 10kW SOLAR MATRIX</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION J: SERVICE CITIES OF INDIA -->
+    <!-- SECTION J: SERVICE CITIES OF TAMIL NADU -->
     <section class="areas text-center">
-      <div class="areas-watermark">INDIA</div>
+      <div class="areas-watermark">TAMIL NADU</div>
       <div class="container">
-        <h2 class="areas-headline reveal-up">Serving Solar Across India</h2>
+        <h2 class="areas-headline reveal-up">Serving Solar Across Tamil Nadu</h2>
         <div class="areas-grid reveal-scale">
-          <span class="city-pill">MUMBAI</span>
-          <span class="city-pill">DELHI</span>
-          <span class="city-pill">BANGALORE</span>
-          <span class="city-pill">HYDERABAD</span>
           <span class="city-pill">CHENNAI</span>
-          <span class="city-pill">PUNE</span>
-          <span class="city-pill">AHMEDABAD</span>
-          <span class="city-pill">KOLKATA</span>
-          <span class="city-pill">JAIPUR</span>
-          <span class="city-pill">LUCKNOW</span>
-          <span class="city-pill">CHANDIGARH</span>
-          <span class="city-pill">INDORE</span>
-          <span class="city-pill">NAGPUR</span>
           <span class="city-pill">COIMBATORE</span>
-          <span class="city-pill">KOCHI</span>
-          <span class="city-pill">VISAKHAPATNAM</span>
+          <span class="city-pill">MADURAI</span>
+          <span class="city-pill">TIRUCHIRAPPALLI</span>
+          <span class="city-pill">SALEM</span>
+          <span class="city-pill">TIRUNELVELI</span>
+          <span class="city-pill">TIRUPPUR</span>
+          <span class="city-pill">VELLORE</span>
+          <span class="city-pill">ERODE</span>
+          <span class="city-pill">THOOTHUKUDI</span>
+          <span class="city-pill">NAGERCOIL</span>
+          <span class="city-pill">THANJAVUR</span>
+          <span class="city-pill">DINDIGUL</span>
+          <span class="city-pill">KANCHIPURAM</span>
         </div>
       </div>
     </section>
@@ -3031,7 +3129,7 @@
               <p>Contact Phone: <strong id="outPhone">+91</strong></p>
               <p>Installation Location: <strong id="outState">Karnataka</strong></p>
               <p>Proposed Power: <strong id="outSystem">5 kW System</strong></p>
-              <p>Approved Govt. Subsidy Estimate: <strong id="outSubsidy">₹88,000</strong></p>
+              <p id="dispatchStatus" style="display: none; margin-top: 12px; font-size: 0.75rem; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 8px; font-family: var(--font-mono);"></p>
             </div>
             
             <button class="btn btn-primary" onclick="resetFormState()" style="margin-top: 24px; padding: 12px 24px; font-size: 0.72rem;">Close Profile Setup</button>
@@ -3059,18 +3157,9 @@
                 <span class="error-msg" id="errPhone">Enter valid 10-digit Indian mobile number</span>
               </div>
               <div class="form-group">
-                <label class="form-lbl" for="formState">State Selection</label>
+                <label class="form-lbl" for="formState">State (Tamil Nadu Only)</label>
                 <select class="form-select" id="formState">
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Karnataka" selected>Karnataka</option>
-                  <option value="Tamil Nadu">Tamil Nadu</option>
-                  <option value="Gujarat">Gujarat</option>
-                  <option value="Rajasthan">Rajasthan</option>
-                  <option value="Delhi">Delhi NCR</option>
-                  <option value="Telangana">Telangana</option>
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                  <option value="Kerala">Kerala</option>
-                  <option value="Others">Others</option>
+                  <option value="Tamil Nadu" selected>Tamil Nadu</option>
                 </select>
               </div>
             </div>
@@ -3078,9 +3167,9 @@
             <div class="form-group-full">
               <label class="form-lbl" for="selectedSys">Calculated Solar Matrix size</label>
               <select class="form-select" id="selectedSys">
-                <option value="Aarunya Array 3kW">Aarunya Array 3kW System (₹1,20,000)</option>
-                <option value="Aarunya Array 5kW + Battery" selected>Aarunya Array 5kW System + LFP Storage (₹2,40,000)</option>
-                <option value="Aarunya Array 10kW">Aarunya Array 10kW Heavy Load (₹4,50,000)</option>
+                <option value="Aarunya Array 3kW">Aarunya Array 3kW System</option>
+                <option value="Aarunya Array 5kW + Battery" selected>Aarunya Array 5kW System + LFP Storage</option>
+                <option value="Aarunya Array 10kW">Aarunya Array 10kW Heavy Load</option>
               </select>
             </div>
 
@@ -3147,16 +3236,22 @@
           <div>
             <h4 class="footer-head">Headquarters</h4>
             <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);">
-              Aarunya Energy Tower, level 4,<br>
-              Outer Ring Road, Marathahalli,<br>
-              Bangalore, KA 560103, India
+              Flat no 411<br>
+              C block<br>
+              Vgn Southern Avenue<br>
+              Wilt Street<br>
+              Katankulathur<br>
+              Chennai 603203
             </p>
           </div>
 
         </div>
 
         <div class="footer-bottom">
-          <span class="footer-copy">© 2026 AARUNYA ENERGY. ALL RIGHTS RESERVED. MNRE REGISTERED NO. IN-2980Z.</span>
+          <span class="footer-copy">
+            © 2026 AARUNYA ENERGY. ALL RIGHTS RESERVED. MNRE REGISTERED NO. IN-2980Z. | 
+            <a href="#" onclick="showLeadConsole(event)" style="color: var(--accent); text-decoration: underline; font-weight: 500;">Lead Console</a>
+          </span>
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #444444;">PM SURYA GHAR GREEN COMPLIANT</div>
         </div>
       </div>
@@ -3482,13 +3577,13 @@
             const fee = (category === 'commercial' ? 4 : 40) * (category === 'commercial' ? TANGEDCO_COMMERCIAL.demandCharge : TANGEDCO_INDUSTRIAL.demandCharge);
             const units = Math.max(0, Math.round((bill - fee) / rate) - avgGen);
             const newBill = Math.round((units * rate) + fee);
-            return { currentBill: bill, newBill, monthlySavings: Math.max(0, bill - newBill), annualSavings: Math.max(0, bill - newBill) * 12 };
+            return { currentBill: bill, newBill, monthlySavings: Math.max(0, bill - newBill), annualSavings: Math.max(0, bill - newBill) * 10 };
           }
           const monthlyUnits = this.calculateUnitsFromBill(bill, 'domestic');
           const netBimonthly = Math.max(0, (monthlyUnits * 2) - (avgGen * 2));
           const newMonthly = Math.round(this.calculateDomesticBiMonthlyBill(netBimonthly) / 2);
           const savings = Math.max(0, bill - newMonthly);
-          return { currentBill: bill, newBill: newMonthly, monthlySavings: savings, annualSavings: savings * 12 };
+          return { currentBill: bill, newBill: newMonthly, monthlySavings: savings, annualSavings: savings * 10 };
         },
         calculateFinancials: function(systemKW, districtName, panelType, netCost, annualSavingsYr1, category) {
           let cum = -netCost, totalSav = 0, payback = 25, pbFound = false;
@@ -3745,7 +3840,7 @@
 
         renderMonthlyChart(monthlyGen);
 
-        animateValue(document.getElementById('resMonthlyGen'), Math.round(avgMonthlyGen).toLocaleString('en-IN') + ' kWh');
+        animateValue(document.getElementById('resMonthlyGen'), Math.round(Math.max(...monthlyGen)).toLocaleString('en-IN') + ' kWh');
         animateValue(document.getElementById('resAnnualGen'), Math.round(annualGen).toLocaleString('en-IN') + ' kWh');
         animateValue(document.getElementById('resPanelCount'), panelCount + ' panels');
         animateValue(document.getElementById('resCO2'), Math.round(financials.carbonOffset25 / 1000) + ' tonnes');
@@ -3834,6 +3929,7 @@
         const phoneVal = document.getElementById('phoneNum').value.trim();
         const stateSelect = document.getElementById('formState').value;
         const systemSelectValue = document.getElementById('selectedSys').value;
+        const messageVal = document.getElementById('message').value.trim();
 
         let valid = true;
         
@@ -3850,20 +3946,85 @@
 
         if (!valid) return;
 
+        // Save lead to local storage
+        const lead = {
+          timestamp: new Date().toLocaleString('en-IN'),
+          name: nameVal,
+          email: mailVal,
+          phone: phoneVal,
+          state: stateSelect,
+          system: systemSelectValue,
+          message: messageVal
+        };
+
+        try {
+          const currentLeads = JSON.parse(localStorage.getItem('aarunya_leads') || '[]');
+          currentLeads.push(lead);
+          localStorage.setItem('aarunya_leads', JSON.stringify(currentLeads));
+        } catch (err) {
+          console.error('Failed to save lead locally:', err);
+        }
+
+        // Trigger Web3Forms Email Routing if key is configured
+        const web3Key = localStorage.getItem('aarunya_web3_key') || 'aa16decc-c7fe-4ac3-b3a9-bb2702f96407';
+        
+        const dispatchStatus = document.getElementById('dispatchStatus');
+        if (dispatchStatus) {
+          dispatchStatus.style.display = 'none';
+        }
+
+        if (web3Key) {
+          fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              access_key: web3Key,
+              from_name: "Aarunya Energy Inquiry",
+              subject: `New Lead: ${nameVal} (${systemSelectValue})`,
+              name: nameVal,
+              email: mailVal,
+              phone: phoneVal,
+              state: stateSelect,
+              system: systemSelectValue,
+              message: messageVal
+            })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success && dispatchStatus) {
+              dispatchStatus.textContent = "✓ Lead notification successfully sent to Aarunya Sales Desk.";
+              dispatchStatus.style.color = "var(--accent)";
+              dispatchStatus.style.display = "block";
+            } else if (dispatchStatus) {
+              dispatchStatus.textContent = "⚠️ Mail dispatch error: " + data.message;
+              dispatchStatus.style.color = "#ff4444";
+              dispatchStatus.style.display = "block";
+            }
+          })
+          .catch(err => {
+            console.error("Web3Forms email error:", err);
+            if (dispatchStatus) {
+              dispatchStatus.textContent = "⚠️ Network error while dispatching email notification.";
+              dispatchStatus.style.color = "#ff4444";
+              dispatchStatus.style.display = "block";
+            }
+          });
+        } else {
+          if (dispatchStatus) {
+            dispatchStatus.textContent = "ℹ️ Lead saved locally. Setup Web3Forms key in Lead Console to test live email dispatch.";
+            dispatchStatus.style.color = "var(--text-secondary)";
+            dispatchStatus.style.display = "block";
+          }
+        }
+
         // Populate Success view specs
         document.getElementById('outName').textContent = nameVal;
         document.getElementById('outPhone').textContent = phoneVal;
         document.getElementById('outState').textContent = stateSelect;
         document.getElementById('outSystem').textContent = systemSelectValue;
-        
-        // Estimate custom approved subsidy from system name
-        let sizeEstimate = '₹66,000 Approved';
-        if (systemSelectValue.includes('5kW')) {
-          sizeEstimate = '₹88,000 Approved';
-        } else if (systemSelectValue.includes('10kW')) {
-          sizeEstimate = '₹1,43,000 Approved';
-        }
-        document.getElementById('outSubsidy').textContent = sizeEstimate;
 
         // Animate success screen state swap
         document.getElementById('proposalForm').style.display = 'none';
@@ -3877,6 +4038,111 @@
         document.getElementById('message').value = '';
         document.getElementById('proposalForm').style.display = 'block';
         document.getElementById('successBox').style.display = 'none';
+        const dispatchStatus = document.getElementById('dispatchStatus');
+        if (dispatchStatus) {
+          dispatchStatus.style.display = 'none';
+        }
+      }
+
+      // --- LEAD CONSOLE MANAGEMENT ENGINE ---
+      function showLeadConsole(e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById('leadConsoleModal');
+        modal.style.display = 'flex';
+        // Force browser layout reflow
+        modal.offsetHeight;
+        modal.classList.add('active');
+        
+        // Populate access key input
+        const key = localStorage.getItem('aarunya_web3_key') || 'aa16decc-c7fe-4ac3-b3a9-bb2702f96407';
+        document.getElementById('web3keyInput').value = key;
+        
+        loadLeadsTable();
+      }
+
+      function hideLeadConsole() {
+        const modal = document.getElementById('leadConsoleModal');
+        modal.classList.remove('active');
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 300);
+      }
+
+      // Close modal on outside click
+      window.addEventListener('click', (e) => {
+        const modal = document.getElementById('leadConsoleModal');
+        if (e.target === modal) {
+          hideLeadConsole();
+        }
+      });
+
+      function saveWeb3Key() {
+        const keyVal = document.getElementById('web3keyInput').value.trim();
+        localStorage.setItem('aarunya_web3_key', keyVal);
+        alert('Web3Forms Access Key saved successfully! Future form submissions will route inquiries to your email.');
+      }
+
+      function loadLeadsTable() {
+        const leads = JSON.parse(localStorage.getItem('aarunya_leads') || '[]');
+        const tbody = document.getElementById('leadTableBody');
+        tbody.innerHTML = '';
+        
+        if (leads.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-secondary); padding: 24px; font-family: var(--font-mono); font-size: 0.75rem;">No leads received yet. Try submitting the contact form above!</td></tr>';
+          return;
+        }
+        
+        leads.forEach((lead, idx) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="color: var(--accent); font-family: var(--font-mono); font-size: 0.72rem;">${lead.timestamp || 'N/A'}</td>
+            <td><strong>${escapeHtml(lead.name)}</strong></td>
+            <td><a href="mailto:${lead.email}" style="color: var(--accent); text-decoration: underline;">${escapeHtml(lead.email)}</a></td>
+            <td style="font-family: var(--font-mono); font-size: 0.75rem;">${escapeHtml(lead.phone)}</td>
+            <td><span style="background: #181818; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--hairline); font-family: var(--font-mono); font-size: 0.65rem; color: #ffffff;">${escapeHtml(lead.system)}</span></td>
+            <td>${escapeHtml(lead.state)}</td>
+            <td style="max-width: 220px; white-space: normal; word-break: break-all;">${escapeHtml(lead.message || '-')}</td>
+            <td><button class="btn-delete-lead" onclick="deleteLead(${idx})">Delete</button></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function deleteLead(idx) {
+        const leads = JSON.parse(localStorage.getItem('aarunya_leads') || '[]');
+        leads.splice(idx, 1);
+        localStorage.setItem('aarunya_leads', JSON.stringify(leads));
+        loadLeadsTable();
+      }
+
+      function clearAllLeads() {
+        if (confirm('Are you sure you want to delete all stored leads?')) {
+          localStorage.removeItem('aarunya_leads');
+          loadLeadsTable();
+        }
+      }
+
+      function exportLeads() {
+        const leads = localStorage.getItem('aarunya_leads') || '[]';
+        const blob = new Blob([leads], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `aarunya_leads_${Date.now()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
       }
 
       // 10. Footer active simulated live counter incrementer
@@ -3895,5 +4161,47 @@
         }, 200);
       }, 3000);
     </script>
+    <!-- PREMIUM LEAD CONSOLE MODAL -->
+    <div id="leadConsoleModal" class="lead-modal">
+      <div class="lead-modal-content">
+        <div class="lead-modal-header">
+          <h3>Lead Console &amp; Integration Desk</h3>
+          <button class="lead-modal-close" onclick="hideLeadConsole()">&times;</button>
+        </div>
+        <div class="lead-modal-body">
+          <p class="lead-modal-desc">Leads are saved in local browser storage. Paste your free Web3Forms Access Key below to also route notifications to your email inbox.</p>
+          
+          <div class="integration-row">
+            <input type="text" id="web3keyInput" class="lead-input" placeholder="Paste Web3Forms Access Key here...">
+            <button class="btn-console" onclick="saveWeb3Key()">Save Key</button>
+            <a href="https://web3forms.com/" target="_blank" class="link-get-key" style="margin-left: 12px;">Get Free Key ↗</a>
+          </div>
+          
+          <div class="lead-table-wrapper">
+            <table class="lead-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>System</th>
+                  <th>State</th>
+                  <th>Message</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="leadTableBody">
+                <!-- Leads dynamically loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="lead-modal-footer">
+          <button class="btn-console btn-danger" onclick="clearAllLeads()">Clear All Leads</button>
+          <button class="btn-console" onclick="exportLeads()" style="margin-left: 12px;">Export JSON</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

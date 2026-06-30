@@ -36,7 +36,7 @@ export default function OrderQuoteSystem() {
   // Quote form handlers
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { fullName, email, phone, address } = quoteInput;
+    const { fullName, email, phone, address, monthlyBill, roofType, preferredContact, message } = quoteInput;
 
     if (!fullName || !email || !phone || !address) {
       setQuoteError("All required metadata fields must be supplied.");
@@ -44,48 +44,61 @@ export default function OrderQuoteSystem() {
     }
 
     setQuoteError("");
+
+    // Create lead object
+    const lead = {
+      timestamp: new Date().toLocaleString("en-IN"),
+      name: fullName,
+      email: email,
+      phone: phone,
+      state: address,
+      system: "Quote Consultation Request",
+      message: `Bill: ${monthlyBill}, Roof: ${roofType}, Contact: ${preferredContact}. Msg: ${message}`
+    };
+
+    // Save to LocalStorage
+    try {
+      const currentLeads = JSON.parse(localStorage.getItem("aarunya_leads") || "[]");
+      currentLeads.push(lead);
+      localStorage.setItem("aarunya_leads", JSON.stringify(currentLeads));
+    } catch (err) {
+      console.error("LocalStorage error:", err);
+    }
+
+    // Call Web3Forms if key is set
+    const web3Key = localStorage.getItem("aarunya_web3_key") || "aa16decc-c7fe-4ac3-b3a9-bb2702f96407";
+    if (web3Key) {
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: web3Key,
+          from_name: "Aarunya Energy Inquiry (React)",
+          subject: `New Quote Request: ${fullName}`,
+          name: fullName,
+          email: email,
+          phone: phone,
+          state: address,
+          system: "Consultation Request",
+          message: `Bill: ${monthlyBill}\nRoof: ${roofType}\nPreferred Contact: ${preferredContact}\nMessage: ${message}`
+        })
+      })
+      .catch(err => console.error("Web3Forms error:", err));
+    }
+
     setIsQuoteSent(true);
     setShowQuoteModal(true);
   };
 
   // Pricing calculations
   const orderAddonsAndPrices = useMemo(() => {
-    const tier = ORDER_TIERS.find((t) => t.id === order.selectedTierId);
-    if (!tier) return { totalPrice: 0, paymentLabel: "" };
-
-    const baselinePrice = tier.price;
-
-    if (order.selectedTierId === "enterprise") {
-      return {
-        totalPrice: "Custom Pricing",
-        paymentLabel: "Subject to structural drafting consultation",
-        deposit: "$0 Down",
-      };
-    }
-
-    let calculatedPrice = baselinePrice;
-    let paymentLabel = "";
-    let deposit = "$0 Down";
-
-    if (order.financingType === "cash") {
-      // 30% Federal Investment Tax Credit instant rebate rebate applied virtually
-      const taxCreditRebate = baselinePrice * 0.3;
-      calculatedPrice = baselinePrice - taxCreditRebate;
-      paymentLabel = `One-time payment (saves ${taxCreditRebate.toLocaleString()} via Federal Clean Energy ITC)`;
-    } else if (order.financingType === "loan") {
-      // 20-year low interest green loan monthly payments index
-      const monthlyRate = Math.round((baselinePrice * 0.0062));
-      paymentLabel = `$${monthlyRate}/mo at 4.2% low APR (Est. cashflow positive Month 1)`;
-    } else {
-      // Lease agreement monthly utility replacement
-      const monthlyRate = Math.round((baselinePrice * 0.005));
-      paymentLabel = `$${monthlyRate}/mo fixed power purchase agreement (Full-term AURA technical maintenance)`;
-    }
-
     return {
-      totalPrice: `$${calculatedPrice.toLocaleString()}`,
-      paymentLabel,
-      deposit,
+      totalPrice: "Custom Pricing",
+      paymentLabel: "Subject to structural drafting consultation",
+      deposit: "$0 Down",
     };
   }, [order]);
 
@@ -157,10 +170,7 @@ export default function OrderQuoteSystem() {
 
                     {/* Pricing baseline */}
                     <div className="flex items-baseline gap-2 mb-6 border-b border-white/5 pb-6">
-                      <span className="font-serif text-3xl md:text-4xl font-bold text-white">{tier.priceRaw}</span>
-                      {tier.id !== "enterprise" && (
-                        <span className="font-sans text-xs text-[#a0aec0] font-light">nominal retail price</span>
-                      )}
+                      <span className="font-serif text-3xl md:text-4xl font-bold text-white">Custom Quote</span>
                     </div>
 
                     <p className="font-sans text-white/70 text-sm leading-relaxed mb-8 font-light">

@@ -121,9 +121,9 @@ export const ORDER_TIERS: OrderTier[] = [
   {
     id: "starter",
     name: "Aarunya Array 6kW System",
-    capacity: "6 kW Premium Power Grid",
-    price: 12000,
-    priceRaw: "$12,000",
+    capacity: "6 kW Premium Power Grid (On-Grid Type)",
+    price: 0,
+    priceRaw: "Custom Quote",
     tagline: "Ideal for high-density suburban homes and essential savings.",
     features: [
       "Aerospace mapping analysis",
@@ -136,9 +136,9 @@ export const ORDER_TIERS: OrderTier[] = [
   {
     id: "professional",
     name: "Aura Home Autonomy Grid",
-    capacity: "10 kW Aarunya Array + 15kWh Smart Edge Battery",
-    price: 22000,
-    priceRaw: "$22,000",
+    capacity: "10 kW Aarunya Array + 15kWh Smart Edge Battery (Hybrid Type)",
+    price: 0,
+    priceRaw: "Custom Quote",
     tagline: "Our most requested solution for complete self-reliance & resilient backups.",
     features: [
       "Aerospace mapping analysis",
@@ -153,8 +153,8 @@ export const ORDER_TIERS: OrderTier[] = [
   {
     id: "enterprise",
     name: "Complete Architectural Custom Grid",
-    capacity: "Custom Scale PV + Storage Array",
-    price: 36000,
+    capacity: "Custom Scale PV + Storage Array (Hybrid/On-Grid Type)",
+    price: 0,
     priceRaw: "Custom Quote",
     tagline: "For estate residences, multi-structure grids, and net-zero goals.",
     features: [
