@@ -3248,9 +3248,8 @@
         </div>
 
         <div class="footer-bottom">
-          <span class="footer-copy">
-            © 2026 AARUNYA ENERGY. ALL RIGHTS RESERVED. MNRE REGISTERED NO. IN-2980Z. | 
-            <a href="#" onclick="showLeadConsole(event)" style="color: var(--accent); text-decoration: underline; font-weight: 500;">Lead Console</a>
+          <span class="footer-copy" id="footerCopy" style="cursor: default;" onclick="handleCopyClick(event)">
+            © 2026 AARUNYA ENERGY. ALL RIGHTS RESERVED. MNRE REGISTERED NO. IN-2980Z.
           </span>
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #444444;">PM SURYA GHAR GREEN COMPLIANT</div>
         </div>
@@ -4045,8 +4044,46 @@
       }
 
       // --- LEAD CONSOLE MANAGEMENT ENGINE ---
-      function showLeadConsole(e) {
-        if (e) e.preventDefault();
+      let footerClickCount = 0;
+      let footerClickTimer = null;
+      
+      function handleCopyClick(e) {
+        footerClickCount++;
+        clearTimeout(footerClickTimer);
+        footerClickTimer = setTimeout(() => {
+          footerClickCount = 0;
+        }, 3000);
+        
+        if (footerClickCount >= 5) {
+          footerClickCount = 0;
+          showLeadConsole(e);
+        }
+      }
+
+      async function showLeadConsole(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        
+        const passwordInput = prompt("Enter Admin Password to access Lead Console:");
+        if (!passwordInput) return;
+        
+        const encoder = new TextEncoder();
+        const data = encoder.encode(passwordInput);
+        let hashHex = '';
+        try {
+          const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        } catch (err) {
+          console.error("SubtleCrypto error:", err);
+          if (passwordInput !== 'aarunya@2026') return;
+        }
+        
+        const targetHash = "f13f1e497fc2e59fe035f19dac79df32adce7aa0f7abd94789a019d3ad12f125";
+        if (hashHex && hashHex !== targetHash) {
+          alert("Invalid Admin Password!");
+          return;
+        }
+
         const modal = document.getElementById('leadConsoleModal');
         modal.style.display = 'flex';
         // Force browser layout reflow
