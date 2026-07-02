@@ -3471,9 +3471,8 @@
       };
 
       const SYSTEM_COST_PER_KW = [
-        { maxKW: 1, cost: 70000 }, { maxKW: 2, cost: 65000 }, { maxKW: 3, cost: 57000 },
-        { maxKW: 5, cost: 55000 }, { maxKW: 8, cost: 53000 }, { maxKW: 10, cost: 52000 },
-        { maxKW: Infinity, cost: 50000 }
+        { maxKW: 1, cost: 75000 }, { maxKW: 2, cost: 73000 }, { maxKW: 3, cost: 71000 },
+        { maxKW: Infinity, cost: 70000 }
       ];
 
       const SolarEngine = {
@@ -3587,7 +3586,11 @@
         calculateFinancials: function(systemKW, districtName, panelType, netCost, annualSavingsYr1, category) {
           let cum = -netCost, totalSav = 0, payback = 25, pbFound = false;
           const initialMaint = systemKW * 1000;
-          const initialCost = systemKW * 55000;
+          let kwCost = 70000;
+          for (let i = 0; i < SYSTEM_COST_PER_KW.length; i++) {
+            if (systemKW <= SYSTEM_COST_PER_KW[i].maxKW) { kwCost = SYSTEM_COST_PER_KW[i].cost; break; }
+          }
+          const initialCost = systemKW * kwCost;
           const breakdown = [];
           
           for (let yr = 1; yr <= 25; yr++) {

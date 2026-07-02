@@ -123,13 +123,10 @@ export default function SavingsCalculator() {
     const panelCount = Math.ceil((systemKW * 1000) / panelWattages[panelType]);
 
     // Costing
-    let kwCost = 50000;
-    if (systemKW <= 1) kwCost = 70000;
-    else if (systemKW <= 2) kwCost = 65000;
-    else if (systemKW <= 3) kwCost = 57000;
-    else if (systemKW <= 5) kwCost = 55000;
-    else if (systemKW <= 8) kwCost = 53000;
-    else if (systemKW <= 10) kwCost = 52000;
+    let kwCost = 70000;
+    if (systemKW <= 1) kwCost = 75000;
+    else if (systemKW <= 2) kwCost = 73000;
+    else if (systemKW <= 3) kwCost = 71000;
 
     let markup = panelType === "hjt" ? 1.15 : (panelType === "topcon" ? 1.05 : 1.0);
     const grossCost = systemKW * kwCost * markup;
@@ -189,7 +186,7 @@ export default function SavingsCalculator() {
     // Financial Analysis (25 years)
     let cum = -netCost, totalSav = 0, payback = 25, pbFound = false;
     const initialMaint = systemKW * 1000;
-    const initialCost = systemKW * 55000;
+    const initialCost = systemKW * kwCost;
     for (let yr = 1; yr <= 25; yr++) {
       const genDeg = annualGen * (1 - (panelType === "hjt" ? 0.005 + 0.003 * (yr - 1) : 0.01 + 0.004 * (yr - 1)));
       const sav = annualSavings * Math.pow(1.05, yr - 1) * (genDeg / annualGen);

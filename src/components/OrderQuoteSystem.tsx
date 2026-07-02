@@ -93,14 +93,90 @@ export default function OrderQuoteSystem() {
     setShowQuoteModal(true);
   };
 
+  // Dynamic pricing calculations for standard tiers based on capacity and system type
+  const tierCostDetails = useMemo(() => {
+    const calculateTierCost = (tierId: string) => {
+      let systemKW = 6;
+      let installationType: "on_grid" | "hybrid" = "on_grid";
+      let batteryKWh = 0;
+
+      if (tierId === "starter") {
+        systemKW = 6;
+        installationType = "on_grid";
+        batteryKWh = 0;
+      } else if (tierId === "professional") {
+        systemKW = 10;
+        installationType = "hybrid";
+        batteryKWh = 15;
+      } else {
+        // enterprise
+        systemKW = 15;
+        installationType = "hybrid";
+        batteryKWh = 30;
+      }
+
+      // Costing curve matches SavingsCalculator
+      let kwCost = 70000;
+      if (systemKW <= 1) kwCost = 75000;
+      else if (systemKW <= 2) kwCost = 73000;
+      else if (systemKW <= 3) kwCost = 71000;
+
+      const grossCost = systemKW * kwCost * 1.05; // 5% TOPCon markup default
+      const batteryCost = batteryKWh * 10000;
+      const totalCost = grossCost + batteryCost;
+
+      // Subsidy (Residential PM Surya Ghar)
+      const subsidy = 78000; // Capped at 78,000 for systems >= 3kW
+      const netCost = totalCost - subsidy;
+
+      return { totalCost, netCost, systemKW, batteryKWh, installationType };
+    };
+
+    return {
+      starter: calculateTierCost("starter"),
+      professional: calculateTierCost("professional"),
+      enterprise: calculateTierCost("enterprise"),
+    };
+  }, []);
+
   // Pricing calculations
   const orderAddonsAndPrices = useMemo(() => {
-    return {
-      totalPrice: "Custom Pricing",
-      paymentLabel: "Subject to structural drafting consultation",
-      deposit: "$0 Down",
-    };
-  }, [order]);
+    const tierData = tierCostDetails[order.selectedTierId as "starter" | "professional" | "enterprise"];
+    if (!tierData) {
+      return {
+        totalPrice: "Custom Pricing",
+        paymentLabel: "Subject to structural drafting consultation",
+        deposit: "₹0 Down",
+      };
+    }
+
+    const formatINR = (amt: number) => "₹" + Math.round(amt).toLocaleString("en-IN");
+
+    if (order.financingType === "cash") {
+      return {
+        totalPrice: formatINR(tierData.netCost),
+        paymentLabel: `Net cash investment after ₹78,000 subsidy (Gross: ${formatINR(tierData.totalCost)})`,
+        deposit: "₹0 Down (Reserve Free)",
+      };
+    } else if (order.financingType === "loan") {
+      // 7-year Smart Loan EMI at 8% APR (factor = 0.0156)
+      const emi = tierData.netCost * 0.0156;
+      return {
+        totalPrice: `${formatINR(emi)}/mo`,
+        paymentLabel: `Estimated 84-month green bank loan (Gross: ${formatINR(tierData.totalCost)})`,
+        deposit: "₹0 Down (Reserve Free)",
+      };
+    } else {
+      // Power Lease PPA
+      // ₹600 per kW per month + ₹200 per kWh battery lease per month
+      const leaseFee = (tierData.systemKW * 600) + (tierData.batteryKWh * 200);
+      return {
+        totalPrice: `${formatINR(leaseFee)}/mo`,
+        paymentLabel: `Zero-down power purchase agreement lease (Includes ongoing maintenance)`,
+        deposit: "₹0 Down (Reserve Free)",
+      };
+    }
+  }, [order, tierCostDetails]);
 
   const handleOrderSubmit = () => {
     setIsOrdered(true);
@@ -169,8 +245,27 @@ export default function OrderQuoteSystem() {
                     </div>
 
                     {/* Pricing baseline */}
-                    <div className="flex items-baseline gap-2 mb-6 border-b border-white/5 pb-6">
-                      <span className="font-serif text-3xl md:text-4xl font-bold text-white">Custom Quote</span>
+                    <div className="flex items-baseline gap-2 mb-6 border-b border-white/5 pb-6 flex-wrap">
+                      <span className="font-serif text-2xl md:text-3xl font-bold text-[#ffcc33]">
+                        {(() => {
+                          const tierData = tierCostDetails[tier.id as "starter" | "professional" | "enterprise"];
+                          const formatINRCompact = (amt: number) => {
+                            if (amt >= 100000) return "₹" + (amt / 100000).toFixed(2) + " L";
+                            return "₹" + Math.round(amt).toLocaleString("en-IN");
+                          };
+                          return `${formatINRCompact(tierData.netCost)} Net`;
+                        })()}
+                      </span>
+                      <span className="text-xs text-white/50">
+                        (Gross: {(() => {
+                          const tierData = tierCostDetails[tier.id as "starter" | "professional" | "enterprise"];
+                          const formatINRCompact = (amt: number) => {
+                            if (amt >= 100000) return "₹" + (amt / 100000).toFixed(2) + " L";
+                            return "₹" + Math.round(amt).toLocaleString("en-IN");
+                          };
+                          return formatINRCompact(tierData.totalCost);
+                        })()})
+                      </span>
                     </div>
 
                     <p className="font-sans text-white/70 text-sm leading-relaxed mb-8 font-light">
