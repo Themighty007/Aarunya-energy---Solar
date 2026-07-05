@@ -104,7 +104,7 @@ export default function Footer() {
             <ul className="space-y-3 font-sans text-xs">
               <li>
                 <button onClick={() => handleScrollTo("product-showcase")} className="hover:text-[#d4a843] transition-colors cursor-pointer text-left">
-                  Sleek Aarunya Solar Arrays
+                  Sleek Aarunya Solar Systems
                 </button>
               </li>
               <li>

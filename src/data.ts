@@ -62,12 +62,12 @@ export const PRODUCT_SHOWCASE_ITEMS: ProductFeature[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    quote: "Reducing our electric bills from $340 to a flat $11 connection fee has been revolutionary. The Aarunya Array looks incredibly clean and integrated seamlessly with our flat glass-roof design. We are completely unaffected during local summer blackouts.",
+    quote: "Reducing our electric bills from $340 to a flat $11 connection fee has been revolutionary. The Aarunya Solar System looks incredibly clean and integrated seamlessly with our flat glass-roof design. We are completely unaffected during local summer blackouts.",
     author: "Elena & Marcus Vance",
     location: "Aspen, Colorado",
     avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5,
-    systemDetails: "Aarunya Array 12kW + 2x Edge Batteries (30kWh)"
+    systemDetails: "Aarunya Solar System 12kW + 2x Edge Batteries (30kWh)"
   },
   {
     id: "t2",
@@ -76,7 +76,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Pasadena, California",
     avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5,
-    systemDetails: "Aarunya Array 10kW + Edge Battery (15kWh)"
+    systemDetails: "Aarunya Solar System 10kW + Edge Battery (15kWh)"
   },
   {
     id: "t3",
@@ -85,7 +85,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: "Austin, Texas",
     avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5,
-    systemDetails: "Aarunya Array 8kW + Edge Battery (15kWh)"
+    systemDetails: "Aarunya Solar System 8kW + Edge Battery (15kWh)"
   }
 ];
 
@@ -120,7 +120,7 @@ export const FAQS: FAQItem[] = [
 export const ORDER_TIERS: OrderTier[] = [
   {
     id: "starter",
-    name: "Aarunya Array 6kW System",
+    name: "Aarunya 6kW System",
     capacity: "6 kW Premium Power Grid (On-Grid Type)",
     price: 0,
     priceRaw: "Custom Quote",
@@ -136,7 +136,7 @@ export const ORDER_TIERS: OrderTier[] = [
   {
     id: "professional",
     name: "Aura Home Autonomy Grid",
-    capacity: "10 kW Aarunya Array + 15kWh Smart Edge Battery (Hybrid Type)",
+    capacity: "10 kW Aarunya System + 15kWh Smart Edge Battery (Hybrid Type)",
     price: 0,
     priceRaw: "Custom Quote",
     tagline: "Our most requested solution for complete self-reliance & resilient backups.",
@@ -153,7 +153,7 @@ export const ORDER_TIERS: OrderTier[] = [
   {
     id: "enterprise",
     name: "Complete Architectural Custom Grid",
-    capacity: "Custom Scale PV + Storage Array (Hybrid/On-Grid Type)",
+    capacity: "Custom Scale PV + Storage System (Hybrid/On-Grid Type)",
     price: 0,
     priceRaw: "Custom Quote",
     tagline: "For estate residences, multi-structure grids, and net-zero goals.",
