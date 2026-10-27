@@ -165,21 +165,62 @@ export default function PastProjects() {
   };
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-white text-[#0f172a] relative z-20 border-t border-b border-gray-200">
+    <section id="projects" className="py-24 md:py-32 bg-white text-[#0f172a] relative z-20 border-t border-b border-gray-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* HEADER */}
-        <div className="mb-12">
+        <div className="mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#f1f5f9] text-[#0f172a] border border-[#e2e8f0] rounded-full text-xs font-mono uppercase tracking-widest font-bold mb-4">
             <span className="w-2 h-2 rounded-full bg-[#84cc16] shadow-[0_0_10px_#84cc16] animate-pulse" />
             TOP THREE SIGNATURE PROJECTS
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0a0e1a] mb-4">
-            Past Completed Projects
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0a0e1a] mb-4 flex items-center flex-wrap gap-3">
+            <span>Past Completed Projects</span>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 bg-[#0f172a] text-[#c8f500] rounded-full shadow-md">
+              Real-World Proof
+            </span>
           </h2>
-          <p className="text-[#475569] text-base md:text-lg max-w-2xl leading-relaxed">
+          <p className="text-[#475569] text-base md:text-lg max-w-2xl leading-relaxed mb-8">
             Explore our top three signature on-grid solar installations engineered with precision elevated mounting and zero-shade orientation across Tamil Nadu.
           </p>
+
+          {/* AGGRESSIVE & ELEGANT HIGHLIGHT ELEMENT (POPS OUT ON SCROLL) */}
+          <div className="bg-gradient-to-br from-[#090d16] to-[#0f172a] border border-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:border-[#c8f500]/50 relative overflow-hidden group mb-10">
+            {/* Top accent glow line */}
+            <div className="absolute top-0 left-0 w-36 h-[2px] bg-gradient-to-r from-[#c8f500] to-transparent" />
+            
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-[#c8f500] mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#c8f500] shadow-[0_0_8px_#c8f500] animate-pulse" />
+                  FIELD-VERIFIED ENGINEERING GUARANTEE
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-2">
+                  Engineered to Outperform Local Contractors with <span className="text-[#c8f500] drop-shadow-[0_0_15px_rgba(200,245,0,0.35)]">Guaranteed Peak Generation</span>.
+                </h3>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Zero structural roof punctures. Elevated galvanized pergola architectures. Full TANGEDCO net-metering approvals delivered turnkey.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-around sm:justify-start gap-6 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-8 flex-shrink-0">
+                <div className="text-center">
+                  <div className="font-mono text-2xl font-black text-white">100%</div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Zero-Shade Yield</div>
+                </div>
+                <div className="w-px h-10 bg-white/10 hidden sm:block" />
+                <div className="text-center">
+                  <div className="font-mono text-2xl font-black text-[#c8f500]">₹0</div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Bi-Monthly EB Goal</div>
+                </div>
+                <div className="w-px h-10 bg-white/10 hidden sm:block" />
+                <div className="text-center">
+                  <div className="font-mono text-2xl font-black text-white">25-Yr</div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Performance SLA</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 2-COLUMN LAYOUT */}
