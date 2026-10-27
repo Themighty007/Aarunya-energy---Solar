@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
 import WhyAura from "./components/WhyAura";
 import ProductShowcase from "./components/ProductShowcase";
+import PastProjects from "./components/PastProjects";
 import SavingsCalculator from "./components/SavingsCalculator";
 
 import FAQs from "./components/FAQs";
@@ -56,6 +57,9 @@ export default function App() {
 
       {/* 5. Product bento Grid items */}
       <ProductShowcase />
+
+      {/* 5.5. Past Completed Projects Gallery */}
+      <PastProjects />
 
       {/* 6. Active calculation slider modelers */}
       <SavingsCalculator />

@@ -1057,6 +1057,483 @@
         margin-right: 8px;
       }
 
+      /* ====== PAST COMPLETED PROJECTS (LIGHT / WHITE CONTRAST THEME) ====== */
+      .projects-section {
+        background-color: #ffffff;
+        color: #0f172a;
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+        padding: 100px 0;
+        overflow: hidden;
+      }
+      .projects-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #0f172a;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        margin-bottom: 16px;
+      }
+      .projects-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #84cc16;
+        box-shadow: 0 0 10px #84cc16;
+        animation: pulse-dot 2s infinite;
+        display: inline-block;
+      }
+      .projects-header {
+        margin-bottom: 44px;
+      }
+      .projects-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 800;
+        color: #0a0e1a;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 12px;
+      }
+      .projects-desc {
+        color: #475569;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        max-width: 620px;
+      }
+      .projects-layout {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 36px;
+        align-items: start;
+      }
+
+      /* Left Side: Selectable List */
+      .projects-list-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .projects-list-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        color: #64748b;
+        letter-spacing: 0.08em;
+        padding: 0 4px;
+        margin-bottom: 4px;
+      }
+      .project-card-item {
+        position: relative;
+        background-color: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 22px 24px;
+        cursor: pointer;
+        transition: all 0.3s var(--ease-out-expo);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+      }
+      .project-card-item:hover {
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      }
+      .project-card-item.active {
+        border-color: #0f172a;
+        background-color: #ffffff;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+      }
+      .project-card-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: #f1f5f9;
+        width: 100%;
+      }
+      .project-card-progress-bar {
+        height: 100%;
+        background: #0f172a;
+        width: 0%;
+        transition: width 0.08s linear;
+      }
+      .project-card-item:not(.active) .project-card-progress-bar {
+        width: 0% !important;
+      }
+      .project-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .project-card-name {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.01em;
+      }
+      .project-card-badge {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 6px;
+        background: #0f172a;
+        color: #c8f500;
+        border: 1px solid #0f172a;
+      }
+      .project-card-item:not(.active) .project-card-badge {
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+      }
+      .project-card-location {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 12px;
+      }
+      .project-card-location svg {
+        width: 14px;
+        height: 14px;
+        stroke: #64748b;
+      }
+      .project-card-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .project-pill-spec {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 3px 8px;
+        background: #f8fafc;
+        border-radius: 4px;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+      }
+      .project-card-desc {
+        font-size: 0.86rem;
+        line-height: 1.5;
+        color: #475569;
+      }
+
+      /* Right Side: Photo Viewer */
+      .project-viewer-wrap {
+        background-color: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 18px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+      .project-viewer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 20px 26px;
+        background-color: #ffffff;
+        border-bottom: 1.5px solid #e2e8f0;
+      }
+      .viewer-area-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .viewer-area-title-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .viewer-area-title {
+        font-family: var(--font-display);
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+      .viewer-area-sub {
+        font-size: 0.86rem;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .viewer-area-sub svg {
+        stroke: #64748b;
+      }
+      .viewer-controls-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn-fullscreen-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: #f8fafc;
+        border: 1.5px solid #cbd5e1;
+        color: #0f172a;
+        cursor: pointer;
+        transition: all 0.2s var(--ease-out-expo);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+      .btn-fullscreen-icon:hover {
+        background: #0f172a;
+        color: #c8f500;
+        border-color: #0f172a;
+        transform: scale(1.05);
+      }
+
+      /* Photo Stage Container */
+      .project-stage-box {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        background: #000000;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .project-stage-img-bg {
+        position: absolute;
+        inset: -20px;
+        width: calc(100% + 40px);
+        height: calc(100% + 40px);
+        object-fit: cover;
+        filter: blur(28px) brightness(0.25);
+        opacity: 0.8;
+        transform: scale(1.1);
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .project-stage-img {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        z-index: 2;
+        transition: transform 0.6s var(--ease-out-expo), opacity 0.35s ease;
+        user-select: none;
+      }
+      .project-stage-video {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: none;
+        z-index: 2;
+        outline: none;
+        background: transparent;
+      }
+      .project-stage-box:hover .project-stage-img {
+        transform: scale(1.02);
+      }
+
+      /* Photo Overlay Bar at bottom of stage */
+      .project-photo-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.65) 60%, transparent 100%);
+        padding: 24px 24px 18px 24px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .project-photo-caption {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        pointer-events: auto;
+        max-width: 65%;
+      }
+      .caption-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .caption-desc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.45;
+      }
+      .project-photo-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        pointer-events: auto;
+      }
+      .angle-indicator-pill {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        font-weight: 600;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 7px 14px;
+        border-radius: 8px;
+        letter-spacing: 0.04em;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+      }
+      .btn-next-angle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent);
+        color: #050505;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: all 0.25s var(--ease-out-expo);
+        box-shadow: 0 4px 14px rgba(200, 245, 0, 0.25);
+        white-space: nowrap;
+      }
+      .btn-next-angle:hover {
+        background: #d4ff1a;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(200, 245, 0, 0.45);
+      }
+      .btn-next-angle svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.35s ease;
+      }
+      .btn-next-angle:hover svg {
+        transform: rotate(180deg);
+      }
+
+      /* Lightbox Modal */
+      .project-lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 5, 5, 0.94);
+        backdrop-filter: blur(12px);
+        z-index: 99999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .project-lightbox.show {
+        display: flex;
+        animation: fadeIn 0.25s ease forwards;
+      }
+      .lightbox-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 82vh;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      }
+      .lightbox-info {
+        margin-top: 14px;
+        text-align: center;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: -44px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        font-size: 24px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .lightbox-close:hover {
+        background: var(--accent);
+        color: #000000;
+      }
+
+      /* Responsive rules for Past Projects */
+      @media (max-width: 992px) {
+        .projects-layout {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .project-stage-box {
+          height: 440px;
+        }
+        .project-photo-caption {
+          max-width: 100%;
+        }
+        .project-photo-overlay {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      @media (max-width: 640px) {
+        .projects-section {
+          padding: 70px 0;
+        }
+        .project-stage-box {
+          height: 340px;
+        }
+        .viewer-area-title {
+          font-size: 1.25rem;
+        }
+      }
+
       /* CALCULATOR & BEFORE/AFTER SLIDER SECTION */
       /* CALCULATOR & BEFORE/AFTER SLIDER SECTION */
       .calculator {
@@ -2309,11 +2786,10 @@
 
         <ul class="nav-links">
           <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#impact">Impact</a></li>
           <li><a href="#timeline">Journey</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#systems">Systems</a></li>
-          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Consultation</a></li>
         </ul>
 
@@ -2335,11 +2811,10 @@
     <div class="mobile-menu" id="mobile-drawer">
       <ul class="mobile-links">
         <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#impact">Impact</a></li>
         <li><a href="#timeline">Journey</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#systems">Systems</a></li>
-        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Consultation</a></li>
       </ul>
       <a href="#contact" class="btn btn-primary" id="mobile-drawer-cta">
@@ -2678,6 +3153,115 @@
 
       </div>
     </section>
+
+    <!-- SECTION F.5: PAST COMPLETED PROJECTS (TOP 3 SIGNATURE SITES) -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        
+        <div class="projects-header reveal-up">
+          <div class="projects-badge">
+            <span class="projects-badge-dot"></span>
+            TOP THREE SIGNATURE PROJECTS
+          </div>
+          <h2 class="projects-title">Past Completed Projects</h2>
+          <p class="projects-desc">
+            Explore our top three signature on-grid solar installations engineered with precision elevated mounting and zero-shade orientation across Tamil Nadu.
+          </p>
+        </div>
+
+        <div class="projects-layout">
+          
+          <!-- LEFT SIDE: SELECTABLE LIST -->
+          <div class="projects-list-col reveal-left">
+            <div class="projects-list-meta">
+              <span>Select Site to Inspect</span>
+              <span id="projectCounterText" style="color: #0f172a; font-weight: 700;">TOP THREE PROJECTS</span>
+            </div>
+            
+            <div class="projects-list" id="projectsListContainer">
+              <!-- Dynamically populated by JS controller -->
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE: INTERACTIVE PHOTO VIEWER -->
+          <div class="projects-viewer-col reveal-right">
+            <div class="project-viewer-wrap">
+              
+              <!-- TOP BAR: AREA NAME PROMINENTLY DISPLAYED -->
+              <div class="project-viewer-header">
+                <div class="viewer-area-meta">
+                  <div class="viewer-area-title-row">
+                    <h3 class="viewer-area-title" id="viewerAreaName">Natesan Nagar</h3>
+                    <span class="project-pill-spec" style="background: #0f172a; color: #c8f500; border-color: #0f172a; font-weight: 700;" id="viewerCapacity">3.3 kW System</span>
+                    <span class="project-pill-spec" style="background: #f1f5f9; color: #334155; border-color: #e2e8f0;">On-Grid Solar Installation</span>
+                  </div>
+                  <div class="viewer-area-sub" id="viewerLocation">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Virugambakkam, Chennai, Tamil Nadu</span>
+                  </div>
+                </div>
+
+                <div class="viewer-controls-row">
+                  <button class="btn-fullscreen-icon" onclick="openProjectLightbox()" title="View Fullscreen" aria-label="Fullscreen">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- PHOTO STAGE (CLEAN & UNOBSTRUCTED) -->
+              <div class="project-stage-box" id="projectStageBox">
+                <!-- Blurred backdrop ambient layer -->
+                <img id="projectStageImgBg" class="project-stage-img-bg" src="/projects/site2-1.png" alt="Ambient Backdrop">
+                
+                <!-- Main sharp image -->
+                <img id="projectMainImg" class="project-stage-img" src="/projects/site2-1.png" alt="Installation View">
+
+                <!-- Video element for video playback -->
+                <video id="projectMainVideo" class="project-stage-video" autoplay loop muted playsinline controls></video>
+
+                <!-- PHOTO BOTTOM OVERLAY BAR -->
+                <div class="project-photo-overlay">
+                  <div class="project-photo-caption">
+                    <div class="caption-title" id="photoCaptionTitle">Solar Module Rooftop Installation</div>
+                    <div class="caption-desc" id="photoCaptionDesc">Full rooftop solar matrix engineered with optimal tilt and zero shade orientation.</div>
+                  </div>
+                  
+                  <div class="project-photo-actions">
+                    <span class="angle-indicator-pill" id="angleIndicator">Photo 1 / 2</span>
+                    <button class="btn-next-angle" onclick="switchNextAngle(event)">
+                      <span>Switch to Next Angle</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FULLSCREEN LIGHTBOX MODAL -->
+    <div id="projectLightboxModal" class="project-lightbox" onclick="closeProjectLightbox(event)">
+      <div class="lightbox-content" onclick="event.stopPropagation()">
+        <button class="lightbox-close" onclick="closeProjectLightbox(event)">&times;</button>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Fullscreen Project View">
+        <video id="lightboxVideo" class="lightbox-img" style="display:none;" controls autoplay playsinline></video>
+        <div class="lightbox-info">
+          <h4 id="lightboxTitle" style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;"></h4>
+          <p id="lightboxLocation" style="color: #cbd5e1; font-size: 0.88rem;"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- SECTION G: AARUNYA ADVANTAGE COMPARISON TABLE -->
     <section class="comparison">
@@ -3307,7 +3891,7 @@
       indContainer.className = 'section-indicators';
       document.body.appendChild(indContainer);
 
-      const indicatorSections = ['home', 'impact', 'timeline', 'services', 'systems', 'calculator', 'contact'];
+      const indicatorSections = ['home', 'impact', 'timeline', 'services', 'systems', 'projects', 'calculator', 'contact'];
       indicatorSections.forEach(secId => {
         const dot = document.createElement('div');
         dot.className = 'indicator-dot';
@@ -4200,6 +4784,313 @@
           displayEl.style.transform = 'scale(1)';
         }, 200);
       }, 3000);
+
+      // ====== PAST COMPLETED PROJECTS CONTROLLER ======
+      const PAST_PROJECTS = [
+        {
+          id: "natesan-nagar",
+          areaName: "Natesan Nagar",
+          location: "Virugambakkam, Chennai, Tamil Nadu",
+          shortLocation: "Virugambakkam, Chennai",
+          capacity: "3.3 kW System",
+          type: "On-Grid Solar Installation",
+          description: "Custom-engineered elevated gazebo pergola structure preserving complete terrace garden space underneath, mounted with high-efficiency tier-1 bifacial panels.",
+          media: [
+            {
+              type: "image",
+              url: "/projects/site2-1.png",
+              title: "Solar Module Rooftop Installation",
+              label: "Angle 1 / 2",
+              desc: "Full rooftop solar matrix engineered with optimal tilt and zero-shade orientation overlooking Virugambakkam."
+            },
+            {
+              type: "image",
+              url: "/projects/site2-2.png",
+              title: "Elevated Terrace Garden Canopy",
+              label: "Angle 2 / 2",
+              desc: "Tall elevated steel pergola canopy providing weather protection while retaining the entire terrace garden below."
+            }
+          ]
+        },
+        {
+          id: "madambakkam",
+          areaName: "Madambakkam",
+          location: "Tambaram, Chennai, Tamil Nadu",
+          shortLocation: "Tambaram, Chennai",
+          capacity: "3.3 kW System",
+          type: "On-Grid Solar Installation",
+          description: "Turnkey rooftop solar installation featuring high-efficiency panels and a Growatt smart cloud-monitored inverter with dual surge protection breakers.",
+          media: [
+            {
+              type: "image",
+              url: "/projects/site1-1.png",
+              title: "Rooftop Solar Module Installation",
+              label: "Angle 1 / 2",
+              desc: "Precision-mounted solar panels receiving unobstructed south-facing sun exposure in Madambakkam, Tambaram."
+            },
+            {
+              type: "image",
+              url: "/projects/site1-2.png",
+              title: "Growatt Smart Inverter & Protection Hub",
+              label: "Angle 2 / 2",
+              desc: "Neatly routed cabling, Growatt IoT wireless inverter with IP65 AC/DC distribution boxes and surge protection."
+            }
+          ]
+        },
+        {
+          id: "thiruverkadu",
+          areaName: "Thiruverkadu",
+          location: "Maduravoyal, Chennai, Tamil Nadu",
+          shortLocation: "Maduravoyal, Chennai",
+          capacity: "3.3 kW System",
+          type: "On-Grid Solar Installation",
+          description: "Turnkey rooftop solar installation with heavy-duty structural terrace mounts and zero-shade exposure for maximum annual clean generation.",
+          media: [
+            {
+              type: "image",
+              url: "/projects/site3-1.png",
+              title: "Rooftop Solar Module Installation",
+              label: "Photo 1 / 3",
+              desc: "Precision-mounted tier-1 solar panel modules with zero-shade orientation and heavy-duty galvanized mounts."
+            },
+            {
+              type: "image",
+              url: "/projects/site3-2.png",
+              title: "Terrace Rooftop Solar Matrix",
+              label: "Photo 2 / 3",
+              desc: "Full panoramic terrace layout engineered for maximum solar harvesting and optimal angle tilt."
+            },
+            {
+              type: "video",
+              url: "/projects/site3-vid1.mp4",
+              title: "Live Site Walkthrough Video",
+              label: "Video 3 / 3",
+              desc: "On-site video walkthrough capturing the complete rooftop solar installation, structural finish, and clear sun path."
+            }
+          ]
+        }
+      ];
+
+      let curProjectIdx = 0;
+      let curMediaIdx = 0;
+      let isHoveredOrHeld = false;
+      let cycleProgress = 0;
+      let progressInterval = null;
+      const CYCLE_DURATION = 6000;
+      const TICK_MS = 50;
+
+      function renderProjectsList() {
+        const container = document.getElementById('projectsListContainer');
+        if (!container) return;
+        container.innerHTML = PAST_PROJECTS.map((proj, idx) => `
+          <div class="project-card-item ${idx === curProjectIdx ? 'active' : ''}" onclick="selectProjectSite(${idx})">
+            <div class="project-card-progress">
+              <div class="project-card-progress-bar" id="projectProgress_${idx}"></div>
+            </div>
+            <div class="project-card-top">
+              <h4 class="project-card-name">${proj.areaName}</h4>
+              <span class="project-card-badge">${proj.capacity}</span>
+            </div>
+            <div class="project-card-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>${proj.shortLocation}</span>
+            </div>
+            <div class="project-card-details">
+              <span class="project-pill-spec">${proj.type}</span>
+            </div>
+            <p class="project-card-desc">${proj.description}</p>
+          </div>
+        `).join('');
+      }
+
+      function updateProjectViewer() {
+        const proj = PAST_PROJECTS[curProjectIdx];
+        if (!proj) return;
+        const media = proj.media[curMediaIdx] || proj.media[0];
+
+        // Header Updates
+        const areaNameEl = document.getElementById('viewerAreaName');
+        const capEl = document.getElementById('viewerCapacity');
+        const locEl = document.getElementById('viewerLocation');
+        if (areaNameEl) areaNameEl.textContent = proj.areaName;
+        if (capEl) capEl.textContent = proj.capacity;
+        if (locEl) {
+          locEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>${proj.location}</span>`;
+        }
+
+        // Media Elements (Image vs Video)
+        const imgEl = document.getElementById('projectMainImg');
+        const videoEl = document.getElementById('projectMainVideo');
+        const bgImgEl = document.getElementById('projectStageImgBg');
+
+        if (media.type === 'video') {
+          if (imgEl) imgEl.style.display = 'none';
+          if (videoEl) {
+            videoEl.style.display = 'block';
+            if (videoEl.src !== window.location.origin + media.url && !videoEl.src.endsWith(media.url)) {
+              videoEl.src = media.url;
+            }
+            videoEl.play().catch(() => {});
+          }
+        } else {
+          if (videoEl) {
+            videoEl.pause();
+            videoEl.style.display = 'none';
+          }
+          if (imgEl) {
+            imgEl.style.display = 'block';
+            if (!imgEl.src.endsWith(media.url)) {
+              imgEl.style.opacity = '0';
+              setTimeout(() => {
+                imgEl.src = media.url;
+                imgEl.alt = `${proj.areaName} - ${media.title}`;
+                imgEl.style.opacity = '1';
+              }, 120);
+            }
+          }
+          if (bgImgEl && !bgImgEl.src.endsWith(media.url)) {
+            bgImgEl.src = media.url;
+          }
+        }
+
+        // Caption Updates
+        const capTitleEl = document.getElementById('photoCaptionTitle');
+        const capDescEl = document.getElementById('photoCaptionDesc');
+        const indicatorEl = document.getElementById('angleIndicator');
+
+        if (capTitleEl) capTitleEl.textContent = media.title;
+        if (capDescEl) capDescEl.textContent = media.desc;
+        if (indicatorEl) indicatorEl.textContent = media.label;
+
+        // Left List Active Class Toggle
+        const cards = document.querySelectorAll('.project-card-item');
+        cards.forEach((card, idx) => {
+          if (idx === curProjectIdx) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+            const bar = document.getElementById(`projectProgress_${idx}`);
+            if (bar) bar.style.width = '0%';
+          }
+        });
+      }
+
+      function selectProjectSite(idx) {
+        curProjectIdx = idx;
+        curMediaIdx = 0;
+        cycleProgress = 0;
+        updateProjectViewer();
+      }
+
+      function switchNextAngle(e) {
+        if (e) e.stopPropagation();
+        const proj = PAST_PROJECTS[curProjectIdx];
+        curMediaIdx = (curMediaIdx + 1) % proj.media.length;
+        updateProjectViewer();
+      }
+
+      function setHoverOrHold(state) {
+        isHoveredOrHeld = state;
+        const stage = document.getElementById('projectStageBox');
+        if (state) {
+          if (stage) stage.classList.add('touch-holding');
+        } else {
+          if (stage) stage.classList.remove('touch-holding');
+        }
+      }
+
+      function startProjectAutoCycle() {
+        if (progressInterval) clearInterval(progressInterval);
+        cycleProgress = 0;
+
+        progressInterval = setInterval(() => {
+          if (!isHoveredOrHeld) {
+            cycleProgress += (TICK_MS / CYCLE_DURATION) * 100;
+            const bar = document.getElementById(`projectProgress_${curProjectIdx}`);
+            if (bar) bar.style.width = `${Math.min(100, cycleProgress)}%`;
+
+            if (cycleProgress >= 100) {
+              cycleProgress = 0;
+              curProjectIdx = (curProjectIdx + 1) % PAST_PROJECTS.length;
+              curMediaIdx = 0;
+              updateProjectViewer();
+            }
+          }
+        }, TICK_MS);
+      }
+
+      function initPastProjects() {
+        renderProjectsList();
+        updateProjectViewer();
+        startProjectAutoCycle();
+
+        const stage = document.getElementById('projectStageBox');
+        if (stage) {
+          // Hover interactions
+          stage.addEventListener('mouseenter', () => setHoverOrHold(true));
+          stage.addEventListener('mouseleave', () => setHoverOrHold(false));
+
+          // Touch hold interactions for mobile/tablet
+          let touchTimer = null;
+          stage.addEventListener('touchstart', () => {
+            setHoverOrHold(true);
+            if (touchTimer) clearTimeout(touchTimer);
+          }, { passive: true });
+
+          stage.addEventListener('touchend', () => {
+            touchTimer = setTimeout(() => {
+              setHoverOrHold(false);
+            }, 3000);
+          }, { passive: true });
+        }
+      }
+
+      function openProjectLightbox() {
+        const proj = PAST_PROJECTS[curProjectIdx];
+        const media = proj.media[curMediaIdx] || proj.media[0];
+        const modal = document.getElementById('projectLightboxModal');
+        const img = document.getElementById('lightboxImg');
+        const video = document.getElementById('lightboxVideo');
+        const title = document.getElementById('lightboxTitle');
+        const loc = document.getElementById('lightboxLocation');
+
+        if (modal) {
+          if (media.type === 'video') {
+            if (img) img.style.display = 'none';
+            if (video) {
+              video.style.display = 'block';
+              video.src = media.url;
+              video.play().catch(() => {});
+            }
+          } else {
+            if (video) {
+              video.pause();
+              video.style.display = 'none';
+            }
+            if (img) {
+              img.style.display = 'block';
+              img.src = media.url;
+            }
+          }
+          if (title) title.textContent = `${proj.areaName} — ${media.title}`;
+          if (loc) loc.textContent = proj.location;
+          modal.classList.add('show');
+        }
+      }
+
+      function closeProjectLightbox(e) {
+        const modal = document.getElementById('projectLightboxModal');
+        const video = document.getElementById('lightboxVideo');
+        if (video) video.pause();
+        if (modal) modal.classList.remove('show');
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProjectLightbox();
+      });
+
+      // Boot Past Projects
+      initPastProjects();
     </script>
     <!-- PREMIUM LEAD CONSOLE MODAL -->
     <div id="leadConsoleModal" class="lead-modal">

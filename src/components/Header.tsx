@@ -82,8 +82,8 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: "About", target: "why-aura" },
-            { label: "Solar Panels", target: "product-showcase" },
-            { label: "Calculator", target: "savings-calculator" },
+            { label: "Solar Systems", target: "product-showcase" },
+            { label: "Projects", target: "projects" },
             { label: "Pricing", target: "order-tier-list" },
             { label: "FAQ", target: "faqs" },
             { label: "Contact", target: "quote" },
